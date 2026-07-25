@@ -48,6 +48,7 @@ const auth = getAuth(app);
 
 export {
     db,
+    auth,
     collection,
     addDoc,
     getDocs,
