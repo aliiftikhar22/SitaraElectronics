@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitara Electronics — Wholesale Prices, Even On Qty 1</title>
+<meta name="description" content="Sitara Electronics, Lahore — Refrigerators, Ovens, Microwaves, Heaters, ACs & Irons at genuine wholesale prices, even on a single piece.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="url(#g1)"/>
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#A9C4FF"/><stop offset="1" stop-color="#16234A"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span>SITARA<br><small>Electronics · Wholesale</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#categories">Categories</a>
+      <a href="#products">Shop</a>
+      <a href="#track">Track Order</a>
+      <a href="#why">Why Wholesale</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-phone">☎ <strong>0300 1234567</strong></span>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1.4"/><circle cx="19" cy="21" r="1.4"/><path d="M2.5 3h2.4l2.6 12.6a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="#products" class="btn btn-small"><span class="facet"></span><span>Shop Now</span></a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <canvas id="stars"></canvas>
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow">Lahore's Wholesale Appliance House</div>
+      <h1>Premium Appliances at <em>Sitara Prices</em> — Even On Qty&nbsp;1</h1>
+      <p class="lead">Refrigerators, ovens, microwaves, heaters, ACs and irons — sold at genuine wholesale rate to shopkeepers, contractors and single households alike. No minimum order. No middleman markup.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn"><span class="facet"></span><span>Browse Wholesale Catalog</span></a>
+        <a href="#contact" class="btn btn-ghost"><span>Talk to Sales →</span></a>
+      </div>
+      <div class="stat-strip">
+        <div><b>6</b><span>Product Categories</span></div>
+        <div><b>1 pc</b><span>Minimum Order</span></div>
+        <div><b>1,500+</b><span>Units Supplied</span></div>
+        <div><b>0</b><span>Hidden Charges</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="crystal-card c1">
+        <div class="tag">In Stock — Lahore Warehouse</div>
+        <h4>Split Inverter AC 1.5 Ton</h4>
+        <p>Wholesale unlocked on single-unit orders</p>
+        <div class="price-row"><span class="old">Rs 145,000</span><span class="new">Rs 118,000</span></div>
+      </div>
+      <div class="crystal-card c2">
+        <div class="tag">Best Seller</div>
+        <h4>Frost-Free Refrigerator 12 CFT</h4>
+        <div class="price-row"><span class="old">Rs 68,000</span><span class="new">Rs 54,900</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-wrap">
+  <div class="marquee" id="marquee">
+    <span>Wholesale price on Qty 1</span>
+    <span>Genuine manufacturer warranty</span>
+    <span>Free delivery across Lahore</span>
+    <span>Direct-import pricing</span>
+    <span>Shopkeeper &amp; bulk accounts welcome</span>
+    <span>Cash &amp; installment options</span>
+    <span>Wholesale price on Qty 1</span>
+    <span>Genuine manufacturer warranty</span>
+    <span>Free delivery across Lahore</span>
+    <span>Direct-import pricing</span>
+    <span>Shopkeeper &amp; bulk accounts welcome</span>
+    <span>Cash &amp; installment options</span>
+  </div>
+</div>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="section-pad" id="categories">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Shop by Category</div>
+      <h2>Six categories. One wholesale rate.</h2>
+      <p>Every category below ships at the same wholesale price whether you're furnishing one kitchen or fifty. No tiered pricing, no volume traps.</p>
+    </div>
+    <div class="cat-grid" id="catGrid">
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="11" y="4" width="26" height="40" rx="3"/><line x1="11" y1="20" x2="37" y2="20"/><line x1="17" y1="10" x2="17" y2="15"/><line x1="17" y1="26" x2="17" y2="31"/></svg></div>
+        <h3>Refrigerators</h3><span>12–18 CFT</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="8" width="36" height="32" rx="3"/><rect x="11" y="14" width="26" height="18" rx="1.5"/><circle cx="14" cy="36" r="1.5" fill="currentColor" stroke="none"/><circle cx="20" cy="36" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Ovens</h3><span>Baking · Built-in</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10" width="38" height="26" rx="3"/><rect x="10" y="14" width="22" height="18" rx="1.5"/><circle cx="37" cy="18" r="2" fill="currentColor" stroke="none"/><line x1="34" y1="26" x2="40" y2="26"/></svg></div>
+        <h3>Microwaves</h3><span>20–30 L</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="12" width="30" height="24" rx="4"/><line x1="16" y1="20" x2="16" y2="28"/><line x1="24" y1="18" x2="24" y2="30"/><line x1="32" y1="20" x2="32" y2="28"/><line x1="20" y1="40" x2="20" y2="36"/><line x1="28" y1="40" x2="28" y2="36"/></svg></div>
+        <h3>Heaters</h3><span>Room · Fan · Rod</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="12" width="40" height="16" rx="3"/><line x1="10" y1="28" x2="8" y2="34"/><line x1="38" y1="28" x2="40" y2="34"/><line x1="14" y1="20" x2="34" y2="20"/></svg></div>
+        <h3>Air Conditioners</h3><span>1.0–2.0 Ton</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 14 h20 a8 8 0 0 1 8 8 v0 a8 8 0 0 1 -8 8 H16 l-6 8 v-24 Z"/><line x1="16" y1="20" x2="30" y2="20"/></svg></div>
+        <h3>Irons</h3><span>Steam · Ceramic</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS / SHOP ================= -->
+<section class="section-pad" id="products" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Shop The Wholesale Catalog</div>
+      <h2>Add to cart. Check out. Track it.</h2>
+      <p>Set the quantity — even 1 — and add straight to your cart. Every price shown is already the wholesale rate.</p>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-chip active" data-filter="All">All</button>
+      <button class="filter-chip" data-filter="Refrigerators">Refrigerators</button>
+      <button class="filter-chip" data-filter="Ovens">Ovens</button>
+      <button class="filter-chip" data-filter="Microwaves">Microwaves</button>
+      <button class="filter-chip" data-filter="Heaters">Heaters</button>
+      <button class="filter-chip" data-filter="Air Conditioners">Air Conditioners</button>
+      <button class="filter-chip" data-filter="Irons">Irons</button>
+    </div>
+    <div class="product-grid" id="productGrid"><!-- rendered by JS --></div>
+    <div style="text-align:center; margin-top:50px;">
+      <a href="#track" class="btn btn-ghost"><span>Already ordered? Track it →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section class="section-pad" id="why">
+  <div class="container why-wrap">
+    <div class="why-list">
+      <div class="section-head reveal" style="margin-bottom:34px;">
+        <div class="eyebrow">Why Sitara</div>
+        <h2>Wholesale, without the wholesale headache</h2>
+      </div>
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div><h3>Qty 1 = wholesale rate</h3><p>Buying a single iron or a container of ACs — the per-unit price at Sitara never changes. What you see is what everyone pays.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div><h3>Direct-import sourcing</h3><p>We cut out layered distributors and import in bulk ourselves, passing the margin straight back to you.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div><h3>Genuine warranty, every unit</h3><p>Every appliance ships with full manufacturer warranty and after-sales support — no grey-market units.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div><h3>Same-week delivery</h3><p>In-stock warehouse in Lahore means most orders — single piece or full truckload — leave within the week.</p></div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <div class="trust-panel">
+        <div class="trust-metric">
+          <div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/></svg></div>
+          <div><b>1 Piece</b><span>Minimum order, no exceptions needed</span></div>
+        </div>
+        <div class="trust-metric">
+          <div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <div><b>100%</b><span>Genuine manufacturer warranty</span></div>
+        </div>
+        <div class="trust-metric">
+          <div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div><b>Same Week</b><span>Delivery from our Lahore warehouse</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section-pad" id="reviews">
+  <div class="container test-wrap">
+    <div class="eyebrow" style="justify-content:center;">Trusted By Retailers &amp; Homes</div>
+    <div id="testSlider">
+      <div class="test-slide active">
+        <p>"I order a single AC at a time for my shop in Township and I still get the wholesale rate. That's rare in this market."</p>
+        <div class="who">Imran Bhatti <span>— Electronics retailer, Township Lahore</span></div>
+      </div>
+      <div class="test-slide">
+        <p>"Furnished all 40 rooms of our guest house through Sitara — irons, heaters, microwaves. Delivery was faster than the local market."</p>
+        <div class="who">Ayesha Raza <span>— Guest house owner, Gulberg</span></div>
+      </div>
+      <div class="test-slide">
+        <p>"Genuine warranty cards, honest pricing, and they answer the phone. That's all I need from a supplier."</p>
+        <div class="who">Waqas Electronics <span>— Wholesale buyer, Hall Road</span></div>
+      </div>
+    </div>
+    <div class="test-dots" id="testDots"></div>
+  </div>
+</section>
+
+<!-- ================= ORDER TRACKING ================= -->
+<section class="section-pad" id="track">
+  <div class="container">
+    <div class="section-head reveal" style="margin:0 auto 40px; text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Order Tracking</div>
+      <h2>Where's your order?</h2>
+      <p style="margin:0 auto;">Enter the Order ID you received at checkout to see its current status.</p>
+    </div>
+    <div class="track-box reveal">
+      <div class="track-input-row">
+        <input type="text" id="trackInput" placeholder="e.g. STE-8K2F9Q" autocomplete="off">
+        <button class="btn btn-small" id="trackBtn"><span>Track</span></button>
+      </div>
+      <div class="recent-chips" id="recentChips"></div>
+      <div class="track-result" id="trackResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section>
+  <div class="cta-band reveal" id="contact">
+    <div>
+      <h2>Get today's wholesale price list</h2>
+      <p>Send us your list — even a single item — and we'll reply with the wholesale rate and stock availability within the hour.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://wa.me/923001234567" class="btn"><span class="facet"></span><span>WhatsApp Us</span></a>
+      <a href="tel:+923001234567" class="btn btn-ghost"><span>Call 0300 1234567</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="url(#g2)"/>
+              <defs><linearGradient id="g2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#A9C4FF"/><stop offset="1" stop-color="#16234A"/></linearGradient></defs>
+            </svg>
+          </span>
+          <span>SITARA<br><small>Electronics · Wholesale</small></span>
+        </a>
+        <p>Lahore's wholesale house for refrigerators, ovens, microwaves, heaters, ACs and irons — one honest price for everyone, from one piece up.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#products">Refrigerators</a></li>
+          <li><a href="#products">Ovens</a></li>
+          <li><a href="#products">Microwaves</a></li>
+          <li><a href="#products">Heaters</a></li>
+          <li><a href="#products">Air Conditioners</a></li>
+          <li><a href="#products">Irons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">Why Wholesale</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="#top">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923001234567">0300 1234567</a></li>
+          <li><a href="https://wa.me/923001234567">WhatsApp Sales</a></li>
+          <li><a href="#">Hall Road, Lahore</a></li>
+          <li><a href="#">Mon–Sat, 10am–8pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sitara Electronics. Wholesale rates apply on every order, regardless of quantity.</span>
+      <span>Built for shopkeepers &amp; homes alike</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= OVERLAY / CART / CHECKOUT ================= -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close" id="cartCloseBtn" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-subtotal"><span>Subtotal</span><b id="cartSubtotal">Rs 0</b></div>
+    <button class="btn" id="checkoutBtn"><span class="facet"></span><span>Proceed to Checkout</span></button>
+  </div>
+</aside>
+
+<div class="modal" id="checkoutModal">
+  <div class="modal-head">
+    <h3 id="checkoutTitle">Checkout</h3>
+    <button class="cart-close" id="modalCloseBtn" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="checkoutBody"><!-- rendered by JS each time the modal opens --></div>
+</div>
+
+<script>
+// ===== NAVBAR SCROLL STATE =====
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive:true });
+
+// ===== MOBILE MENU (simple toggle of nav-links display) =====
+const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  const open = navLinks.style.display === 'flex';
+  navLinks.style.display = open ? 'none' : 'flex';
+  navLinks.style.cssText += open ? '' : 'position:fixed; top:70px; left:20px; right:20px; background:rgba(10,14,24,0.97); flex-direction:column; padding:26px; border-radius:16px; border:1px solid rgba(76,127,238,0.2); gap:20px; z-index:200;';
+});
+
+// ===== STARFIELD CANVAS =====
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resizeCanvas(){
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  const count = Math.floor((canvas.width * canvas.height) / 9000);
+  stars = Array.from({length: count}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.4 + 0.3,
+    a: Math.random(),
+    speed: Math.random() * 0.015 + 0.004
+  }));
+}
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function drawStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s => {
+    s.a += s.speed;
+    const op = (Math.sin(s.a) + 1) / 2 * 0.8 + 0.15;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(169,196,255,${op})`;
+    ctx.fill();
+  });
+  if(!reduceMotion) requestAnimationFrame(drawStars);
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+drawStars();
+
+// ===== SCROLL REVEAL =====
+const revealTargets = document.querySelectorAll('.reveal, .cat-card, .product-card, .why-item');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealTargets.forEach(el => io.observe(el));
+
+// ===== TESTIMONIAL SLIDER =====
+const slides = document.querySelectorAll('.test-slide');
+const dotsWrap = document.getElementById('testDots');
+let current = 0;
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => showSlide(i));
+  dotsWrap.appendChild(dot);
+});
+function showSlide(i){
+  slides[current].classList.remove('active');
+  dotsWrap.children[current].classList.remove('active');
+  current = i;
+  slides[current].classList.add('active');
+  dotsWrap.children[current].classList.add('active');
+}
+setInterval(() => { showSlide((current + 1) % slides.length); }, 5000);
+
+// ================= SHOP: DATA =================
+const ICONS = {
+  fridge: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="11" y="4" width="26" height="40" rx="3"/><line x1="11" y1="20" x2="37" y2="20"/><line x1="17" y1="10" x2="17" y2="15"/><line x1="17" y1="26" x2="17" y2="31"/></svg>',
+  oven: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="8" width="36" height="32" rx="3"/><rect x="11" y="14" width="26" height="18" rx="1.5"/><circle cx="14" cy="36" r="1.5" fill="currentColor" stroke="none"/><circle cx="20" cy="36" r="1.5" fill="currentColor" stroke="none"/></svg>',
+  microwave: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="10" width="38" height="26" rx="3"/><rect x="10" y="14" width="22" height="18" rx="1.5"/><circle cx="37" cy="18" r="2" fill="currentColor" stroke="none"/><line x1="34" y1="26" x2="40" y2="26"/></svg>',
+  heater: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="9" y="12" width="30" height="24" rx="4"/><line x1="16" y1="20" x2="16" y2="28"/><line x1="24" y1="18" x2="24" y2="30"/><line x1="32" y1="20" x2="32" y2="28"/><line x1="20" y1="40" x2="20" y2="36"/><line x1="28" y1="40" x2="28" y2="36"/></svg>',
+  ac: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="12" width="40" height="16" rx="3"/><line x1="10" y1="28" x2="8" y2="34"/><line x1="38" y1="28" x2="40" y2="34"/><line x1="14" y1="20" x2="34" y2="20"/></svg>',
+  iron: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 14 h20 a8 8 0 0 1 8 8 v0 a8 8 0 0 1 -8 8 H16 l-6 8 v-24 Z"/><line x1="16" y1="20" x2="30" y2="20"/></svg>'
+};
+const PRODUCTS = [
+  { id:'ref-12', cat:'Refrigerators', name:'Frost-Free Refrigerator 12 CFT', specs:['12 CFT','Frost-Free','2-Door'], price:54900, old:68000, save:19, icon:'fridge' },
+  { id:'ovn-60', cat:'Ovens', name:'Built-in Baking Oven 60L', specs:['60L','Rotisserie','Digital'], price:25500, old:32000, save:20, icon:'oven' },
+  { id:'mwv-25', cat:'Microwaves', name:'Digital Microwave Oven 25L', specs:['25L','Grill','Touch Panel'], price:16800, old:21000, save:20, icon:'microwave' },
+  { id:'htr-2000', cat:'Heaters', name:'Room Heater 2000W', specs:['2000W','Tip-over Safety','Fan Type'], price:6200, old:8500, save:27, icon:'heater' },
+  { id:'ac-15', cat:'Air Conditioners', name:'Split Inverter AC 1.5 Ton', specs:['1.5 Ton','Inverter','DC Motor'], price:118000, old:145000, save:19, icon:'ac' },
+  { id:'irn-cer', cat:'Irons', name:'Ceramic Steam Iron', specs:['Ceramic Plate','Steam Burst'], price:2100, old:3200, save:34, icon:'iron' }
+];
+function pkr(n){ return 'Rs ' + n.toLocaleString('en-PK'); }
+
+// ================= SHOP: RENDER PRODUCTS =================
+const productGrid = document.getElementById('productGrid');
+function productCard(p){
+  return `<div class="product-card">
+    <div class="product-media">
+      <span class="badge-moq">MOQ: 1 pc</span><span class="badge-save">Save ${p.save}%</span>
+      ${ICONS[p.icon]}
+    </div>
+    <div class="product-body">
+      <div class="cat-label">${p.cat}</div>
+      <h3>${p.name}</h3>
+      <div class="specs">${p.specs.map(s => `<span>${s}</span>`).join('')}</div>
+      <div class="price-block">
+        <div><span class="old">${pkr(p.old)}</span><span class="new">${pkr(p.price)}</span></div>
+      </div>
+      <div class="qty-row" style="margin-top:16px;">
+        <span class="moq-note">Qty</span>
+        <div class="qty-stepper">
+          <button type="button" onclick="stepQty('${p.id}',-1)">−</button>
+          <input type="number" id="qty-${p.id}" value="1" min="1" inputmode="numeric">
+          <button type="button" onclick="stepQty('${p.id}',1)">+</button>
+        </div>
+      </div>
+      <button class="add-cart-btn" id="add-${p.id}" onclick="addToCart('${p.id}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        <span>Add to Cart</span>
+      </button>
+    </div>
+  </div>`;
+}
+function renderProducts(filter){
+  const list = (!filter || filter === 'All') ? PRODUCTS : PRODUCTS.filter(p => p.cat === filter);
+  productGrid.innerHTML = list.map(productCard).join('');
+  productGrid.querySelectorAll('.product-card').forEach(el => io.observe(el));
+}
+function stepQty(id, delta){
+  const input = document.getElementById('qty-' + id);
+  const val = Math.max(1, (parseInt(input.value) || 1) + delta);
+  input.value = val;
+}
+renderProducts('All');
+
+// filter chips
+document.getElementById('filterRow').addEventListener('click', (e) => {
+  const chip = e.target.closest('.filter-chip');
+  if (!chip) return;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  renderProducts(chip.dataset.filter);
+});
+// category tiles jump + filter
+document.querySelectorAll('#catGrid .cat-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    const label = card.querySelector('h3').textContent.trim();
+    const map = { 'Refrigerators':'Refrigerators','Ovens':'Ovens','Microwaves':'Microwaves','Heaters':'Heaters','Air Conditioners':'Air Conditioners','Irons':'Irons' };
+    const target = map[label];
+    if (target){
+      const chip = [...document.querySelectorAll('.filter-chip')].find(c => c.dataset.filter === target);
+      if (chip) chip.click();
+    }
+  });
+});
+
+// ================= CART STATE =================
+let cart = {}; // { productId: qty }
+
+function cartCount(){ return Object.values(cart).reduce((a,b) => a + b, 0); }
+function cartTotal(){ return Object.entries(cart).reduce((sum,[id,qty]) => { const p = PRODUCTS.find(x => x.id === id); return sum + (p ? p.price * qty : 0); }, 0); }
+
+async function saveCart(){
+  try { await window.storage.set('cart', JSON.stringify(cart), false); } catch(e){ /* best effort */ }
+}
+async function loadCart(){
+  try {
+    const r = await window.storage.get('cart', false);
+    cart = r && r.value ? JSON.parse(r.value) : {};
+  } catch(e){ cart = {}; }
+  renderCart();
+}
+
+const cartItemsEl = document.getElementById('cartItems');
+const cartFootEl = document.getElementById('cartFoot');
+const cartBadge = document.getElementById('cartBadge');
+const cartSubtotalEl = document.getElementById('cartSubtotal');
+
+function renderCart(){
+  const count = cartCount();
+  cartBadge.textContent = count;
+  cartBadge.classList.add('pulse');
+  setTimeout(() => cartBadge.classList.remove('pulse'), 400);
+
+  const entries = Object.entries(cart);
+  if (entries.length === 0){
+    cartItemsEl.innerHTML = `<div class="cart-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1.4"/><circle cx="19" cy="21" r="1.4"/><path d="M2.5 3h2.4l2.6 12.6a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+      <p>Your cart is empty.</p></div>`;
+    cartFootEl.style.display = 'none';
+    return;
+  }
+  cartFootEl.style.display = 'block';
+  cartItemsEl.innerHTML = entries.map(([id, qty]) => {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return '';
+    return `<div class="cart-line">
+      <div class="ci-icon">${ICONS[p.icon]}</div>
+      <div class="ci-info">
+        <h4>${p.name}</h4>
+        <div class="ci-price">${pkr(p.price)} × ${qty} = <b style="color:var(--accent-bright)">${pkr(p.price*qty)}</b></div>
+        <div class="qty-stepper" style="margin-top:8px; width:fit-content;">
+          <button type="button" onclick="changeCartQty('${id}',-1)">−</button>
+          <input type="text" readonly value="${qty}">
+          <button type="button" onclick="changeCartQty('${id}',1)">+</button>
+        </div>
+      </div>
+      <button class="ci-remove" onclick="removeFromCart('${id}')">Remove</button>
+    </div>`;
+  }).join('');
+  cartSubtotalEl.textContent = pkr(cartTotal());
+}
+function changeCartQty(id, delta){
+  cart[id] = (cart[id] || 0) + delta;
+  if (cart[id] <= 0) delete cart[id];
+  saveCart(); renderCart();
+}
+function removeFromCart(id){ delete cart[id]; saveCart(); renderCart(); }
+
+function addToCart(id){
+  const qtyInput = document.getElementById('qty-' + id);
+  const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+  cart[id] = (cart[id] || 0) + qty;
+  saveCart(); renderCart(); openCart();
+  const btn = document.getElementById('add-' + id);
+  if (btn){
+    const original = btn.innerHTML;
+    btn.classList.add('added');
+    btn.innerHTML = '<span>Added ✓</span>';
+    setTimeout(() => { btn.classList.remove('added'); btn.innerHTML = original; }, 1200);
+  }
+}
+
+// ================= CART / MODAL OPEN-CLOSE =================
+const overlay = document.getElementById('overlay');
+const cartDrawer = document.getElementById('cartDrawer');
+const checkoutModal = document.getElementById('checkoutModal');
+
+function openCart(){ cartDrawer.classList.add('open'); overlay.classList.add('open'); }
+function closeCart(){ cartDrawer.classList.remove('open'); if (!checkoutModal.classList.contains('open')) overlay.classList.remove('open'); }
+function openCheckout(){
+  if (cartCount() === 0) return;
+  renderCheckoutForm();
+  cartDrawer.classList.remove('open');
+  checkoutModal.classList.add('open');
+  overlay.classList.add('open');
+}
+function closeCheckout(){ checkoutModal.classList.remove('open'); overlay.classList.remove('open'); }
+
+document.getElementById('cartBtn').addEventListener('click', () => cartDrawer.classList.contains('open') ? closeCart() : openCart());
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+document.getElementById('modalCloseBtn').addEventListener('click', closeCheckout);
+overlay.addEventListener('click', () => { closeCart(); closeCheckout(); });
+
+// ================= CHECKOUT: RENDER FORM (rebuilt every time the modal opens) =================
+function renderCheckoutForm(){
+  document.getElementById('checkoutTitle').textContent = 'Checkout';
+  const rows = Object.entries(cart).map(([id, qty]) => {
+    const p = PRODUCTS.find(x => x.id === id);
+    return `<div class="os-line"><span>${p.name} × ${qty}</span><span>${pkr(p.price*qty)}</span></div>`;
+  }).join('');
+  document.getElementById('checkoutBody').innerHTML = `
+    <div class="order-summary">${rows}<div class="os-total"><span>Total</span><span>${pkr(cartTotal())}</span></div></div>
+    <form id="checkoutForm">
+      <div class="field"><label>Full Name</label><input type="text" id="custName" required></div>
+      <div class="field-row">
+        <div class="field"><label>Phone Number</label><input type="tel" id="custPhone" required></div>
+        <div class="field"><label>City</label><input type="text" id="custCity" value="Lahore" required></div>
+      </div>
+      <div class="field"><label>Delivery Address</label><textarea id="custAddress" rows="3" required></textarea></div>
+      <div class="field"><label>Notes (optional)</label><input type="text" id="custNotes" placeholder="e.g. call before delivery"></div>
+      <div class="form-error" id="checkoutError"></div>
+      <button type="submit" class="btn" style="width:100%;"><span class="facet"></span><span>Place Order — Cash on Delivery</span></button>
+    </form>`;
+  document.getElementById('checkoutForm').addEventListener('submit', handleCheckoutSubmit);
+}
+
+// ================= CHECKOUT SUBMIT =================
+async function handleCheckoutSubmit(e){
+  e.preventDefault();
+  const form = e.target;
+  const checkoutError = document.getElementById('checkoutError');
+  checkoutError.textContent = '';
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const city = document.getElementById('custCity').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+  if (!name || !phone || !city || !address){
+    checkoutError.textContent = 'Please fill in all required fields.';
+    return;
+  }
+  const submitBtn = form.querySelector('button[type=submit]');
+  submitBtn.disabled = true;
+  const lastSpan = submitBtn.querySelector('span:last-child');
+  if (lastSpan) lastSpan.textContent = 'Placing order…';
+
+  const id = 'STE-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.random().toString(36).slice(2,4).toUpperCase();
+  const order = {
+    id,
+    items: Object.entries(cart).map(([pid, qty]) => { const p = PRODUCTS.find(x => x.id === pid); return { name: p.name, qty, price: p.price }; }),
+    total: cartTotal(),
+    customer: { name, phone, city, address, notes },
+    createdAt: Date.now()
+  };
+
+  try {
+    await window.storage.set('order:' + id, JSON.stringify(order), false);
+    let ids = [];
+    try {
+      const r = await window.storage.get('my-orders', false);
+      ids = r && r.value ? JSON.parse(r.value) : [];
+    } catch(e){ ids = []; }
+    ids.unshift(id);
+    ids = ids.slice(0, 10);
+    await window.storage.set('my-orders', JSON.stringify(ids), false);
+
+    cart = {};
+    await saveCart(); renderCart();
+    showConfirmation(order);
+    loadRecentChips();
+  } catch(err){
+    checkoutError.textContent = "Couldn't place the order — please try again, or WhatsApp us the details.";
+    submitBtn.disabled = false;
+    if (lastSpan) lastSpan.textContent = 'Place Order — Cash on Delivery';
+  }
+}
+
+function showConfirmation(order){
+  document.getElementById('checkoutTitle').textContent = 'Order Confirmed';
+  document.getElementById('checkoutBody').innerHTML = `
+    <div class="confirm-view">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <p style="color:var(--text-muted); font-size:14px;">Thanks, ${order.customer.name.split(' ')[0]} — your order is confirmed. Save this ID to track it anytime:</p>
+      <div class="order-id-box">${order.id}</div>
+      <p style="color:var(--text-muted); font-size:13px; margin-bottom:20px;">Total: <b style="color:var(--accent-bright)">${pkr(order.total)}</b> · Cash on Delivery · ${order.customer.city}</p>
+      <a class="btn" style="width:100%;" href="#track" onclick="closeCheckout(); document.getElementById('trackInput').value='${order.id}'; trackOrder('${order.id}');"><span class="facet"></span><span>Track This Order</span></a>
+    </div>`;
+}
+
+// ================= ORDER TRACKING =================
+const trackInput = document.getElementById('trackInput');
+const trackResult = document.getElementById('trackResult');
+const recentChips = document.getElementById('recentChips');
+
+async function trackOrder(rawId){
+  const id = (rawId || trackInput.value).trim().toUpperCase();
+  if (!id){ trackResult.innerHTML = `<p class="track-error">Enter an Order ID to track.</p>`; return; }
+  trackInput.value = id;
+  trackResult.innerHTML = `<p class="track-loading">Looking up your order…</p>`;
+  try {
+    const r = await window.storage.get('order:' + id, false);
+    const order = JSON.parse(r.value);
+    renderTrackResult(order);
+  } catch(e){
+    trackResult.innerHTML = `<p class="track-error">We couldn't find an order with that ID. Double-check it, or WhatsApp us for help.</p>`;
+  }
+}
+function getStep(order){
+  const hrs = (Date.now() - order.createdAt) / 3600000;
+  if (hrs < 2) return 0;
+  if (hrs < 24) return 1;
+  if (hrs < 96) return 2;
+  return 3;
+}
+function renderTrackResult(order){
+  const labels = ['Order Confirmed', 'Preparing', 'Shipped', 'Delivered'];
+  const step = getStep(order);
+  const steps = labels.map((label, i) => `
+    <div class="t-step ${i < step ? 'done' : ''} ${i === step ? 'current' : ''}">
+      <div class="t-line"></div>
+      <div class="t-dot">${i < step ? '✓' : i+1}</div>
+      <span>${label}</span>
+    </div>`).join('');
+  const items = order.items.map(it => `<div class="track-item-row"><span>${it.name} × ${it.qty}</span><b>${pkr(it.price*it.qty)}</b></div>`).join('');
+  trackResult.innerHTML = `
+    <div class="track-order-meta"><span>Order <b style="color:var(--text)">${order.id}</b></span><span>${order.customer.city} · ${new Date(order.createdAt).toLocaleDateString()}</span></div>
+    <div class="tracker">${steps}</div>
+    <div class="track-items">${items}
+      <div class="track-total-row"><span>Total</span><span>${pkr(order.total)}</span></div>
+    </div>`;
+}
+document.getElementById('trackBtn').addEventListener('click', () => trackOrder());
+trackInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') trackOrder(); });
+
+async function loadRecentChips(){
+  try {
+    const r = await window.storage.get('my-orders', false);
+    const ids = r && r.value ? JSON.parse(r.value) : [];
+    recentChips.innerHTML = ids.length
+      ? 'Your recent orders: ' + ids.map(id => `<button type="button" onclick="trackOrder('${id}')">${id}</button>`).join('')
+      : '';
+  } catch(e){ recentChips.innerHTML = ''; }
+}
+
+// ================= INIT =================
+loadCart();
+loadRecentChips();
+</script>
+</body>
+</html>
