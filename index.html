@@ -650,21 +650,19 @@ async function handleCheckoutSubmit(e){
     createdAt: Date.now()
   };
 
-  try {
-    await window.storage.set('order:' + id, JSON.stringify(order), false);
-    let ids = [];
-    try {
-      const r = await window.storage.get('my-orders', false);
-      ids = r && r.value ? JSON.parse(r.value) : [];
-    } catch(e){ ids = []; }
-    ids.unshift(id);
-    ids = ids.slice(0, 10);
-    await window.storage.set('my-orders', JSON.stringify(ids), false);
+ try {
 
-    cart = {};
-    await saveCart(); renderCart();
-    showConfirmation(order);
-    loadRecentChips();
+    const docRef = await window.firebaseAddDoc(
+      window.firebaseCollection(window.firebaseDB, "orders"),
+      {
+        ...order,
+        status: "Pending",
+        firestoreId: null,
+        createdAt: new Date()
+      }
+    );
+
+    console.log("Order saved to Firebase:", docRef.id);
   } catch(err){
     checkoutError.textContent = "Couldn't place the order — please try again, or WhatsApp us the details.";
     submitBtn.disabled = false;
