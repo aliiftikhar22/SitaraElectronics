@@ -1,4 +1,11 @@
-import { db, collection, addDoc } from "../firebase.js";
+import { 
+  db, 
+  collection, 
+  addDoc, 
+  getDocs,
+  query,
+  where
+} from "../firebase.js";
 // ===== NAVBAR SCROLL STATE =====
 const header = document.getElementById('siteHeader');
 window.addEventListener('scroll', () => {
