@@ -4,12 +4,12 @@
 // → "Your apps" → Web app → SDK setup and configuration.
 // ============================================================
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyA3q_x7ipp0esBm2BahzwAEoRFaN_JC7wk",
+  authDomain: "sitara-electronics.firebaseapp.com",
+  projectId: "sitara-electronics",
+  storageBucket: "sitara-electronics.firebasestorage.app",
+  messagingSenderId: "192588985472",
+  appId: ""1:192588985472:web:9a65cd6469782875bbe265","
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
@@ -23,4 +23,4 @@ export const auth = getAuth(app);
 // Is the config still the placeholder? Both index.html and admin.html
 // check this so they can show a helpful setup message instead of
 // throwing confusing errors when Firebase isn't connected yet.
-export const isFirebaseConfigured = firebaseConfig.apiKey !== "YOUR_API_KEY";
+export const isFirebaseConfigured = firebaseConfig.apiKey !== "AIzaSyA3q_x7ipp0esBm2BahzwAEoRFaN_JC7wk";
