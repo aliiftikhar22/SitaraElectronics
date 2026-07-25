@@ -415,3 +415,86 @@ alert("Error adding product");
 
 
 };
+// ================= ADD PRODUCT =================
+
+const addProductBtn = document.getElementById("addProductBtn");
+
+
+if(addProductBtn){
+
+addProductBtn.onclick = async()=>{
+
+
+const product = {
+
+name: document.getElementById("productName").value.trim(),
+
+category: document.getElementById("productCategory").value,
+
+brand: document.getElementById("productBrand").value.trim(),
+
+price: Number(
+document.getElementById("productPrice").value
+),
+
+stock: Number(
+document.getElementById("productStock").value
+),
+
+image: document.getElementById("productImage").value.trim(),
+
+createdAt: new Date()
+
+};
+
+
+
+if(!product.name || !product.price){
+
+alert("Please enter product name and price");
+
+return;
+
+}
+
+
+
+try{
+
+
+await addDoc(
+collection(db,"products"),
+product
+);
+
+
+alert("Product Added Successfully ✅");
+
+
+// clear form
+
+document.getElementById("productName").value="";
+document.getElementById("productBrand").value="";
+document.getElementById("productPrice").value="";
+document.getElementById("productStock").value="";
+document.getElementById("productImage").value="";
+
+
+// reload products
+
+loadProducts();
+
+
+}
+
+
+catch(error){
+
+console.error("Add Product Error:",error);
+
+alert("Failed to add product");
+
+}
+
+
+};
