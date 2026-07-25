@@ -8,6 +8,8 @@ import {
     collection,
     addDoc,
     getDocs,
+    query,
+    where,
     doc,
     getDoc,
     updateDoc
@@ -26,12 +28,7 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
-
 const app = initializeApp(firebaseConfig);
-
-
-// Firestore Database
 
 const db = getFirestore(app);
 
@@ -49,6 +46,5 @@ export {
     getDoc,
     updateDoc
 };
-
 
 console.log("Firebase Connected ✅");
