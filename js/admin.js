@@ -254,3 +254,22 @@ alert("Status Updated");
 loadOrders();
 
 };
+window.deleteOrder = async(id)=>{
+
+const confirmDelete = confirm(
+"Delete this order?"
+);
+
+if(!confirmDelete) return;
+
+
+await deleteDoc(
+doc(db,"orders",id)
+);
+
+
+alert("Order deleted");
+
+loadOrders();
+
+};
