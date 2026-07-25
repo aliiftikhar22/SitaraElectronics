@@ -7,7 +7,8 @@ import {
     collection,
     getDocs,
     doc,
-    updateDoc
+    updateDoc,
+    deleteDoc
 } from "../firebase.js";
 
 
