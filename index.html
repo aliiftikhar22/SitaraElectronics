@@ -650,31 +650,39 @@ async function handleCheckoutSubmit(e){
     createdAt: Date.now()
   };
 
- try {
+try {
 
     const docRef = await window.firebaseAddDoc(
       window.firebaseCollection(window.firebaseDB, "orders"),
       {
         ...order,
         status: "Pending",
-        firestoreId: null,
         createdAt: new Date()
       }
     );
 
     console.log("Order saved to Firebase:", docRef.id);
-  }     cart = {};
+
+    cart = {};
     await saveCart();
     renderCart();
 
     showConfirmation(order);
- catch(err){
-    checkoutError.textContent = "Couldn't place the order — please try again, or WhatsApp us the details.";
-    submitBtn.disabled = false;
-    if (lastSpan) lastSpan.textContent = 'Place Order — Cash on Delivery';
-  }
-}
 
+} catch(err){
+
+    console.error(err);
+
+    checkoutError.textContent =
+    "Couldn't place the order — please try again, or WhatsApp us the details.";
+
+    submitBtn.disabled = false;
+
+    if (lastSpan) {
+      lastSpan.textContent = 'Place Order — Cash on Delivery';
+    }
+
+}
 function showConfirmation(order){
   document.getElementById('checkoutTitle').textContent = 'Order Confirmed';
   document.getElementById('checkoutBody').innerHTML = `
