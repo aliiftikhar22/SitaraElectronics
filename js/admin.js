@@ -1,4 +1,4 @@
-            import {
+import {
     auth,
     db,
     signInWithEmailAndPassword,
@@ -13,6 +13,8 @@
 } from "../firebase.js";
 
 
+// ================= ELEMENTS =================
+
 const loginBox = document.getElementById("loginBox");
 const dashboard = document.getElementById("dashboard");
 
@@ -22,10 +24,14 @@ const passwordInput = document.getElementById("adminPassword");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
+
 const ordersContainer =
 document.getElementById("ordersContainer");
+
+
 const ordersSection =
 document.getElementById("ordersSection");
+
 
 const productsSection =
 document.getElementById("productsSection");
@@ -42,7 +48,10 @@ document.getElementById("productsTab");
 const addProductBtn =
 document.getElementById("addProductBtn");
 
-// LOGIN
+
+
+// ================= LOGIN =================
+
 
 loginBtn.onclick = async()=>{
 
@@ -54,7 +63,9 @@ await signInWithEmailAndPassword(
     passwordInput.value
 );
 
+
 }
+
 catch(error){
 
 document.getElementById("loginError").textContent =
@@ -65,73 +76,119 @@ error.message;
 };
 
 
-// CHECK LOGIN
+
+
+// ================= AUTH CHECK =================
+
 
 onAuthStateChanged(auth,(user)=>{
 
+
 if(user){
 
+
 loginBox.style.display="none";
+
 dashboard.style.display="block";
 
+
 loadOrders();
+
 
 }
 
 else{
 
+
 loginBox.style.display="block";
+
 dashboard.style.display="none";
 
+
 }
+
 
 });
 
 
-// LOGOUT
 
-logoutBtn.onclick=()=>{
+
+// ================= LOGOUT =================
+
+
+logoutBtn.onclick = ()=>{
 
 signOut(auth);
 
 };
 
+
+
+
+// ================= TABS =================
+
+
 ordersTab.onclick = ()=>{
 
+
 ordersSection.style.display="block";
+
 productsSection.style.display="none";
 
+
+loadOrders();
+
+
 };
+
 
 
 productsTab.onclick = ()=>{
 
+
 ordersSection.style.display="none";
+
 productsSection.style.display="block";
+
 
 loadProducts();
 
+
 };
 
-// LOAD ORDERS
+
+
+
+
+// ================= LOAD ORDERS =================
+
 
 async function loadOrders(){
 
-ordersContainer.innerHTML = "Loading orders...";
+
+ordersContainer.innerHTML =
+"Loading orders...";
 
 
-const snapshot = await getDocs(collection(db,"orders"));
+
+const snapshot =
+await getDocs(collection(db,"orders"));
+
 
 
 if(snapshot.empty){
 
-ordersContainer.innerHTML = "<p>No orders found.</p>";
+ordersContainer.innerHTML =
+"<p>No orders found.</p>";
+
 return;
 
 }
 
 
-ordersContainer.innerHTML = "";
+
+ordersContainer.innerHTML="";
+
 
 
 snapshot.forEach((docSnap)=>{
@@ -140,20 +197,28 @@ snapshot.forEach((docSnap)=>{
 const order = docSnap.data();
 
 
-const orderDate = order.createdAt?.seconds
-? new Date(order.createdAt.seconds * 1000).toLocaleString()
+
+const orderDate =
+order.createdAt?.seconds
+
+? new Date(
+order.createdAt.seconds * 1000
+).toLocaleString()
+
 : "Date unavailable";
 
 
 
-const products = order.items.map(item => `
+const products =
+order.items.map(item=>`
 
 <li>
-${item.name} × ${item.qty} 
+${item.name} × ${item.qty}
 - Rs ${item.price * item.qty}
 </li>
 
 `).join("");
+
 
 
 
@@ -168,8 +233,7 @@ Order ID: ${order.id}
 
 
 <p>
-📅 Date:
-${orderDate}
+📅 ${orderDate}
 </p>
 
 
@@ -177,30 +241,30 @@ ${orderDate}
 
 
 <h4>
-Customer Details
+Customer
 </h4>
 
 
 <p>
-👤 Name:
+Name:
 ${order.customer.name}
 </p>
 
 
 <p>
-📞 Phone:
+Phone:
 ${order.customer.phone}
 </p>
 
 
 <p>
-🏙 City:
+City:
 ${order.customer.city}
 </p>
 
 
 <p>
-📍 Address:
+Address:
 ${order.customer.address}
 </p>
 
@@ -212,7 +276,9 @@ Products
 
 
 <ul>
+
 ${products}
+
 </ul>
 
 
@@ -224,39 +290,42 @@ Rs ${order.total}
 
 
 
-<p>
 Status:
 
-<select onchange="updateStatus('${docSnap.id}',this.value)">
+<select 
+onchange="updateStatus('${docSnap.id}',this.value)"
+>
 
 
 <option value="Pending"
-${order.status === "Pending" ? "selected" : ""}>
+${order.status=="Pending"?"selected":""}>
 Pending
 </option>
 
 
 <option value="Confirmed"
-${order.status === "Confirmed" ? "selected" : ""}>
+${order.status=="Confirmed"?"selected":""}>
 Confirmed
 </option>
 
 
 <option value="Delivered"
-${order.status === "Delivered" ? "selected" : ""}>
+${order.status=="Delivered"?"selected":""}>
 Delivered
 </option>
 
 
 </select>
 
-</p>
 
 
+<br><br>
 
-<button 
+
+<button
 onclick="deleteOrder('${docSnap.id}')"
-style="background:#dc2626;">
+style="background:red;color:white;"
+>
 Delete Order
 </button>
 
@@ -265,182 +334,147 @@ Delete Order
 
 `;
 
+
 });
 
 
 }
 
+
+
+
+
+
+// ================= UPDATE STATUS =================
+
+
 window.updateStatus = async(id,status)=>{
 
 
 await updateDoc(
+
 doc(db,"orders",id),
+
 {
 status:status
 }
+
 );
 
 
 alert("Status Updated");
 
+
 loadOrders();
 
+
 };
+
+
+
+
+
+
+// ================= DELETE ORDER =================
+
+
 window.deleteOrder = async(id)=>{
 
-    try {
 
-        const confirmDelete = confirm(
-            "Delete this order?"
-        );
-
-        if(!confirmDelete) return;
+const confirmDelete =
+confirm("Delete this order?");
 
 
-        await deleteDoc(
-            doc(db,"orders",id)
-        );
-
-
-        alert("Order deleted successfully");
-
-        loadOrders();
-
-
-    } catch(error){
-
-        console.error("Delete failed:", error);
-
-        alert(
-            "Delete failed. Check console."
-        );
-
-    }
-
-};
-window.deleteOrder = async(id)=>{
-
-    try {
-
-        const confirmDelete = confirm(
-            "Delete this order?"
-        );
-
-        if(!confirmDelete) return;
-
-
-        await deleteDoc(
-            doc(db,"orders",id)
-        );
-
-
-        alert("Order deleted successfully");
-
-        loadOrders();
-
-
-    } catch(error){
-
-        console.error("Delete failed:", error);
-
-        alert(
-            "Delete failed. Check console."
-        );
-
-    }
-
-};
-addProductBtn.onclick = async()=>{
-
-
-const product = {
-
-name:
-document.getElementById("productName").value.trim(),
-
-category:
-document.getElementById("productCategory").value,
-
-brand:
-document.getElementById("productBrand").value.trim(),
-
-price:
-Number(document.getElementById("productPrice").value),
-
-stock:
-Number(document.getElementById("productStock").value),
-
-image:
-document.getElementById("productImage").value.trim(),
-
-createdAt:
-new Date()
-
-};
+if(!confirmDelete)
+return;
 
 
 
 try{
 
 
-await addDoc(
-collection(db,"products"),
-product
+await deleteDoc(
+
+doc(db,"orders",id)
+
 );
 
 
-alert("Product Added Successfully");
+
+alert("Order Deleted");
 
 
+loadOrders();
 
-document.getElementById("productName").value="";
-document.getElementById("productBrand").value="";
-document.getElementById("productPrice").value="";
-document.getElementById("productStock").value="";
-document.getElementById("productImage").value="";
-
-
-loadProducts();
 
 
 }
 
 catch(error){
 
+
 console.error(error);
 
-alert("Error adding product");
+
+alert("Delete failed");
+
 
 }
 
 
+
 };
+
+
+
+
+
+
+
+
 // ================= ADD PRODUCT =================
 
+
 if(addProductBtn){
+
 
 addProductBtn.onclick = async()=>{
 
 
 const product = {
 
-name: document.getElementById("productName").value.trim(),
 
-category: document.getElementById("productCategory").value,
+name:
+document.getElementById("productName").value.trim(),
 
-brand: document.getElementById("productBrand").value.trim(),
 
-price: Number(
+category:
+document.getElementById("productCategory").value,
+
+
+brand:
+document.getElementById("productBrand").value.trim(),
+
+
+price:
+Number(
 document.getElementById("productPrice").value
 ),
 
-stock: Number(
+
+stock:
+Number(
 document.getElementById("productStock").value
 ),
 
-image: document.getElementById("productImage").value.trim(),
 
-createdAt: new Date()
+image:
+document.getElementById("productImage").value.trim(),
+
+
+createdAt:
+new Date()
+
 
 };
 
@@ -448,7 +482,11 @@ createdAt: new Date()
 
 if(!product.name || !product.price){
 
-alert("Please enter product name and price");
+
+alert(
+"Enter product name and price"
+);
+
 
 return;
 
@@ -460,39 +498,146 @@ try{
 
 
 await addDoc(
+
 collection(db,"products"),
+
 product
+
 );
 
 
-alert("Product Added Successfully ✅");
+
+alert(
+"Product Added Successfully ✅"
+);
 
 
-// clear form
-
-document.getElementById("productName").value="";
-document.getElementById("productBrand").value="";
-document.getElementById("productPrice").value="";
-document.getElementById("productStock").value="";
-document.getElementById("productImage").value="";
-
-
-// reload products
 
 loadProducts();
 
 
-}
 
+}
 
 catch(error){
 
-console.error("Add Product Error:",error);
 
-alert("Failed to add product");
+console.error(
+"Add Product Error:",
+error
+);
+
+
+alert(
+"Failed to add product"
+);
+
 
 }
 
 
+
 };
+
+
+}
+
+
+
+
+
+
+
+// ================= LOAD PRODUCTS =================
+
+
+async function loadProducts(){
+
+
+const container =
+document.getElementById("productsContainer");
+
+
+
+container.innerHTML =
+"Loading products...";
+
+
+
+const snapshot =
+await getDocs(
+collection(db,"products")
+);
+
+
+
+if(snapshot.empty){
+
+
+container.innerHTML =
+"<p>No products found.</p>";
+
+
+return;
+
+
+}
+
+
+
+container.innerHTML="";
+
+
+
+snapshot.forEach((docSnap)=>{
+
+
+const product =
+docSnap.data();
+
+
+
+container.innerHTML += `
+
+<div class="order-card">
+
+
+<h3>
+${product.name}
+</h3>
+
+
+<p>
+Category:
+${product.category}
+</p>
+
+
+<p>
+Brand:
+${product.brand}
+</p>
+
+
+<p>
+Price:
+Rs ${product.price}
+</p>
+
+
+<p>
+Stock:
+${product.stock}
+</p>
+
+
+</div>
+
+`;
+
+
+
+});
+
+
 }
