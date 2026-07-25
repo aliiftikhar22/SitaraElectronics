@@ -43,6 +43,8 @@ export {
     collection,
     addDoc,
     getDocs,
+    query,
+    where,
     doc,
     getDoc,
     updateDoc
