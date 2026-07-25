@@ -178,14 +178,109 @@ function productCard(p){
   </div>`;
 }
 function renderProducts(filter){
-  const list = (!filter || filter === 'All') ? PRODUCTS : PRODUCTS.filter(p => p.cat === filter);
-  productGrid.innerHTML = list.map(productCard).join('');
-  productGrid.querySelectorAll('.product-card').forEach(el => io.observe(el));
-}
-function stepQty(id, delta){
-  const input = document.getElementById('qty-' + id);
-  const val = Math.max(1, (parseInt(input.value) || 1) + delta);
-  input.value = val;
+
+    const list = 
+    (!filter || filter === 'All') 
+    ? PRODUCTS 
+    : PRODUCTS.filter(
+        p => (p.cat || p.category) === filter
+      );
+
+
+    productGrid.innerHTML = list.map(product => `
+
+    <div class="product-card">
+
+
+        <div class="product-image">
+
+        ${
+            product.image
+            ?
+            `<img src="${product.image}" alt="${product.name}">`
+            :
+            `<div class="product-icon">${product.icon || "📦"}</div>`
+        }
+
+        </div>
+
+
+
+        <div class="product-info">
+
+
+            <span class="product-category">
+            ${product.cat || product.category}
+            </span>
+
+
+
+            <h3>
+            ${product.name}
+            </h3>
+
+
+
+            <p class="brand">
+            ${product.brand || ""}
+            </p>
+
+
+
+            <div class="specs">
+
+            ${
+                (product.specs || [])
+                .map(spec=>`<span>${spec}</span>`)
+                .join("")
+            }
+
+            </div>
+
+
+
+            <div class="price">
+
+                <strong>
+                ${pkr(product.price)}
+                </strong>
+
+
+                ${
+                product.old
+                ?
+                `<del>${pkr(product.old)}</del>`
+                :
+                ""
+                }
+
+            </div>
+
+
+
+            <button 
+            class="btn"
+            onclick="addToCart('${product.id}')">
+
+            Add To Cart
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    `).join("");
+
+
+
+    // Keep your animation
+    productGrid.querySelectorAll('.product-card')
+    .forEach(el => io.observe(el));
+
 }
 renderProducts('All');
 
