@@ -1,4 +1,4 @@
-import {
+            import {
     auth,
     db,
     signInWithEmailAndPassword,
@@ -416,9 +416,6 @@ alert("Error adding product");
 
 };
 // ================= ADD PRODUCT =================
-
-const addProductBtn = document.getElementById("addProductBtn");
-
 
 if(addProductBtn){
 
