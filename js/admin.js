@@ -318,3 +318,100 @@ window.deleteOrder = async(id)=>{
     }
 
 };
+window.deleteOrder = async(id)=>{
+
+    try {
+
+        const confirmDelete = confirm(
+            "Delete this order?"
+        );
+
+        if(!confirmDelete) return;
+
+
+        await deleteDoc(
+            doc(db,"orders",id)
+        );
+
+
+        alert("Order deleted successfully");
+
+        loadOrders();
+
+
+    } catch(error){
+
+        console.error("Delete failed:", error);
+
+        alert(
+            "Delete failed. Check console."
+        );
+
+    }
+
+};
+addProductBtn.onclick = async()=>{
+
+
+const product = {
+
+name:
+document.getElementById("productName").value.trim(),
+
+category:
+document.getElementById("productCategory").value,
+
+brand:
+document.getElementById("productBrand").value.trim(),
+
+price:
+Number(document.getElementById("productPrice").value),
+
+stock:
+Number(document.getElementById("productStock").value),
+
+image:
+document.getElementById("productImage").value.trim(),
+
+createdAt:
+new Date()
+
+};
+
+
+
+try{
+
+
+await addDoc(
+collection(db,"products"),
+product
+);
+
+
+alert("Product Added Successfully");
+
+
+
+document.getElementById("productName").value="";
+document.getElementById("productBrand").value="";
+document.getElementById("productPrice").value="";
+document.getElementById("productStock").value="";
+document.getElementById("productImage").value="";
+
+
+loadProducts();
+
+
+}
+
+catch(error){
+
+console.error(error);
+
+alert("Error adding product");
+
+}
+
+
+};
