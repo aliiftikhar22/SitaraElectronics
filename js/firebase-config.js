@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "sitara-electronics",
   storageBucket: "sitara-electronics.firebasestorage.app",
   messagingSenderId: "192588985472",
-  appId: ""1:192588985472:web:9a65cd6469782875bbe265","
+  appId: "1:192588985472:web:9a65cd6469782875bbe265"
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
