@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sitara Electronics Admin</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <div id="loginBox">
+
+        <h1>Sitara Electronics</h1>
+        <h2>Admin Login</h2>
+
+        <input 
+        type="email" 
+        id="adminEmail" 
+        placeholder="Email">
+
+        <input 
+        type="password" 
+        id="adminPassword" 
+        placeholder="Password">
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+        <p id="loginError"></p>
+
+    </div>
+
+
+    <div id="dashboard" style="display:none;">
+
+        <div class="top-bar">
+            <h1>Orders Dashboard</h1>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+        </div>
+
+
+        <div id="ordersContainer">
+
+            Loading orders...
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script type="module" src="js/admin.js"></script>
+
+</body>
+</html>
