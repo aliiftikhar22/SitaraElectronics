@@ -362,16 +362,48 @@ const trackResult = document.getElementById('trackResult');
 const recentChips = document.getElementById('recentChips');
 
 async function trackOrder(rawId){
+
   const id = (rawId || trackInput.value).trim().toUpperCase();
-  if (!id){ trackResult.innerHTML = `<p class="track-error">Enter an Order ID to track.</p>`; return; }
+
+  if (!id){
+    trackResult.innerHTML =
+    `<p class="track-error">Enter an Order ID to track.</p>`;
+    return;
+  }
+
   trackInput.value = id;
-  trackResult.innerHTML = `<p class="track-loading">Looking up your order…</p>`;
+
+  trackResult.innerHTML =
+  `<p class="track-loading">Looking up your order…</p>`;
+
   try {
-    const r = await window.storage.get('order:' + id, false);
-    const order = JSON.parse(r.value);
+
+    const q = query(
+      collection(db, "orders"),
+      where("id", "==", id)
+    );
+
+    const snapshot = await getDocs(q);
+
+
+    if (snapshot.empty){
+      throw new Error("Order not found");
+    }
+
+
+    const order = snapshot.docs[0].data();
+
     renderTrackResult(order);
-  } catch(e){
-    trackResult.innerHTML = `<p class="track-error">We couldn't find an order with that ID. Double-check it, or WhatsApp us for help.</p>`;
+
+
+  } catch(err){
+
+    console.error(err);
+
+    trackResult.innerHTML =
+    `<p class="track-error">
+    We couldn't find an order with that ID.
+    </p>`;
   }
 }
 function getStep(order){
