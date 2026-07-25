@@ -17,6 +17,15 @@ import {
 "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from 
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyA3q_x7ipp0esBm2BahzwAEoRFaN_JC7wk",
   authDomain: "sitara-electronics.firebaseapp.com",
@@ -31,12 +40,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 
 // Export Firebase tools
 
 export {
     db,
+    auth,
     collection,
     addDoc,
     getDocs,
@@ -44,7 +55,10 @@ export {
     where,
     doc,
     getDoc,
-    updateDoc
+    updateDoc,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
 };
 
 console.log("Firebase Connected ✅");
