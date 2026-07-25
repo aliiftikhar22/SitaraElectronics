@@ -256,20 +256,33 @@ loadOrders();
 };
 window.deleteOrder = async(id)=>{
 
-const confirmDelete = confirm(
-"Delete this order?"
-);
+    try {
 
-if(!confirmDelete) return;
+        const confirmDelete = confirm(
+            "Delete this order?"
+        );
 
-
-await deleteDoc(
-doc(db,"orders",id)
-);
+        if(!confirmDelete) return;
 
 
-alert("Order deleted");
+        await deleteDoc(
+            doc(db,"orders",id)
+        );
 
-loadOrders();
+
+        alert("Order deleted successfully");
+
+        loadOrders();
+
+
+    } catch(error){
+
+        console.error("Delete failed:", error);
+
+        alert(
+            "Delete failed. Check console."
+        );
+
+    }
 
 };
