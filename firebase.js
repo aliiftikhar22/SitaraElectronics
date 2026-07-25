@@ -1,0 +1,52 @@
+// ================= FIREBASE CONFIG =================
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import { 
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    getDoc,
+    updateDoc
+} from 
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA3q_x7ipp0esBm2BahzwAEoRFaN_JC7wk",
+  authDomain: "sitara-electronics.firebaseapp.com",
+  projectId: "sitara-electronics",
+  storageBucket: "sitara-electronics.firebasestorage.app",
+  messagingSenderId: "192588985472",
+  appId: "1:192588985472:web:9a65cd6469782875bbe265",
+  measurementId: "G-5SBHR8KZ21"
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+
+// Firestore Database
+
+const db = getFirestore(app);
+
+
+// Export Firebase tools
+
+export {
+    db,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    getDoc,
+    updateDoc
+};
+
+
+console.log("Firebase Connected ✅");
