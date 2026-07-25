@@ -23,4 +23,4 @@ export const auth = getAuth(app);
 // Is the config still the placeholder? Both index.html and admin.html
 // check this so they can show a helpful setup message instead of
 // throwing confusing errors when Firebase isn't connected yet.
-export const isFirebaseConfigured = firebaseConfig.apiKey !== "AIzaSyA3q_x7ipp0esBm2BahzwAEoRFaN_JC7wk";
+export const isFirebaseConfigured = !!firebaseConfig.apiKey;
