@@ -56,7 +56,10 @@ export {
     doc,
     getDoc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+     signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
 };
 
 console.log("Firebase Connected ✅");
