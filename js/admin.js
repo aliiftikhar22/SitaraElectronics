@@ -84,11 +84,21 @@ signOut(auth);
 
 async function loadOrders(){
 
-ordersContainer.innerHTML="";
+ordersContainer.innerHTML = "Loading orders...";
 
 
-const snapshot =
-await getDocs(collection(db,"orders"));
+const snapshot = await getDocs(collection(db,"orders"));
+
+
+if(snapshot.empty){
+
+ordersContainer.innerHTML = "<p>No orders found.</p>";
+return;
+
+}
+
+
+ordersContainer.innerHTML = "";
 
 
 snapshot.forEach((docSnap)=>{
@@ -97,52 +107,125 @@ snapshot.forEach((docSnap)=>{
 const order = docSnap.data();
 
 
+const orderDate = order.createdAt?.seconds
+? new Date(order.createdAt.seconds * 1000).toLocaleString()
+: "Date unavailable";
+
+
+
+const products = order.items.map(item => `
+
+<li>
+${item.name} × ${item.qty} 
+- Rs ${item.price * item.qty}
+</li>
+
+`).join("");
+
+
+
 ordersContainer.innerHTML += `
 
 <div class="order-card">
 
+
 <h3>
-Order: ${order.id}
+Order ID: ${order.id}
 </h3>
 
 
 <p>
-Customer:
+📅 Date:
+${orderDate}
+</p>
+
+
+<hr>
+
+
+<h4>
+Customer Details
+</h4>
+
+
+<p>
+👤 Name:
 ${order.customer.name}
 </p>
 
 
 <p>
-Phone:
+📞 Phone:
 ${order.customer.phone}
 </p>
 
 
 <p>
-Total:
-Rs ${order.total}
+🏙 City:
+${order.customer.city}
 </p>
 
 
 <p>
+📍 Address:
+${order.customer.address}
+</p>
+
+
+
+<h4>
+Products
+</h4>
+
+
+<ul>
+${products}
+</ul>
+
+
+
+<h3>
+Total:
+Rs ${order.total}
+</h3>
+
+
+
+<p>
 Status:
+
 <select onchange="updateStatus('${docSnap.id}',this.value)">
 
-<option ${order.status=="Pending"?"selected":""}>
+
+<option value="Pending"
+${order.status === "Pending" ? "selected" : ""}>
 Pending
 </option>
 
-<option ${order.status=="Confirmed"?"selected":""}>
+
+<option value="Confirmed"
+${order.status === "Confirmed" ? "selected" : ""}>
 Confirmed
 </option>
 
-<option ${order.status=="Delivered"?"selected":""}>
+
+<option value="Delivered"
+${order.status === "Delivered" ? "selected" : ""}>
 Delivered
 </option>
+
 
 </select>
 
 </p>
+
+
+
+<button 
+onclick="deleteOrder('${docSnap.id}')"
+style="background:#dc2626;">
+Delete Order
+</button>
 
 
 </div>
@@ -153,7 +236,6 @@ Delivered
 
 
 }
-
 
 window.updateStatus = async(id,status)=>{
 
