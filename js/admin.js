@@ -8,7 +8,8 @@ import {
     getDocs,
     doc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+    addDoc
 } from "../firebase.js";
 
 
@@ -23,7 +24,23 @@ const logoutBtn = document.getElementById("logoutBtn");
 
 const ordersContainer =
 document.getElementById("ordersContainer");
+const ordersSection =
+document.getElementById("ordersSection");
 
+const productsSection =
+document.getElementById("productsSection");
+
+
+const ordersTab =
+document.getElementById("ordersTab");
+
+
+const productsTab =
+document.getElementById("productsTab");
+
+
+const addProductBtn =
+document.getElementById("addProductBtn");
 
 // LOGIN
 
@@ -79,7 +96,22 @@ signOut(auth);
 
 };
 
+ordersTab.onclick = ()=>{
 
+ordersSection.style.display="block";
+productsSection.style.display="none";
+
+};
+
+
+productsTab.onclick = ()=>{
+
+ordersSection.style.display="none";
+productsSection.style.display="block";
+
+loadProducts();
+
+};
 
 // LOAD ORDERS
 
