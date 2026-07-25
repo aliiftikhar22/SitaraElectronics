@@ -407,3 +407,10 @@ async function loadRecentChips(){
 // ================= INIT =================
 loadCart();
 loadRecentChips();
+// Make functions available for HTML onclick events
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.changeCartQty = changeCartQty;
+window.trackOrder = trackOrder;
+window.showConfirmation = showConfirmation;
+window.handleCheckoutSubmit = handleCheckoutSubmit;
