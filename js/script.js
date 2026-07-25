@@ -94,15 +94,58 @@ const ICONS = {
   ac: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="12" width="40" height="16" rx="3"/><line x1="10" y1="28" x2="8" y2="34"/><line x1="38" y1="28" x2="40" y2="34"/><line x1="14" y1="20" x2="34" y2="20"/></svg>',
   iron: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 14 h20 a8 8 0 0 1 8 8 v0 a8 8 0 0 1 -8 8 H16 l-6 8 v-24 Z"/><line x1="16" y1="20" x2="30" y2="20"/></svg>'
 };
-const PRODUCTS = [
-  { id:'ref-12', cat:'Refrigerators', name:'Frost-Free Refrigerator 12 CFT', specs:['12 CFT','Frost-Free','2-Door'], price:54900, old:68000, save:19, icon:'fridge' },
-  { id:'ovn-60', cat:'Ovens', name:'Built-in Baking Oven 60L', specs:['60L','Rotisserie','Digital'], price:25500, old:32000, save:20, icon:'oven' },
-  { id:'mwv-25', cat:'Microwaves', name:'Digital Microwave Oven 25L', specs:['25L','Grill','Touch Panel'], price:16800, old:21000, save:20, icon:'microwave' },
-  { id:'htr-2000', cat:'Heaters', name:'Room Heater 2000W', specs:['2000W','Tip-over Safety','Fan Type'], price:6200, old:8500, save:27, icon:'heater' },
-  { id:'ac-15', cat:'Air Conditioners', name:'Split Inverter AC 1.5 Ton', specs:['1.5 Ton','Inverter','DC Motor'], price:118000, old:145000, save:19, icon:'ac' },
-  { id:'irn-cer', cat:'Irons', name:'Ceramic Steam Iron', specs:['Ceramic Plate','Steam Burst'], price:2100, old:3200, save:34, icon:'iron' }
-];
-function pkr(n){ return 'Rs ' + n.toLocaleString('en-PK'); }
+let PRODUCTS = [];
+
+
+async function loadProducts(){
+
+    const snapshot = await getDocs(
+        collection(db,"products")
+    );
+
+
+    PRODUCTS = [];
+
+
+    snapshot.forEach((docSnap)=>{
+
+        const product = docSnap.data();
+
+
+        PRODUCTS.push({
+
+            id: docSnap.id,
+
+            cat: product.category,
+
+            name: product.name,
+
+            specs: product.specs || [],
+
+            price: product.price,
+
+            old: product.old || product.price,
+
+            save: product.save || 0,
+
+            icon: product.icon || "box"
+
+        });
+
+
+    });
+
+
+    renderProducts();
+
+}
+function pkr(n){
+
+    n = Number(n) || 0;
+
+    return 'Rs ' + n.toLocaleString('en-PK');
+
+}
 
 // ================= SHOP: RENDER PRODUCTS =================
 const productGrid = document.getElementById('productGrid');
