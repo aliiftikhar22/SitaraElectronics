@@ -584,6 +584,7 @@ async function loadRecentChips(){
 // ================= INIT =================
 loadCart();
 loadRecentChips();
+loadProducts();
 // Make functions available for HTML onclick events
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
