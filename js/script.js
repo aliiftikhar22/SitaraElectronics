@@ -1,3 +1,4 @@
+import { db, collection, addDoc } from "../firebase.js";
 // ===== NAVBAR SCROLL STATE =====
 const header = document.getElementById('siteHeader');
 window.addEventListener('scroll', () => {
@@ -311,21 +312,25 @@ async function handleCheckoutSubmit(e){
   };
 
   try {
-    await window.storage.set('order:' + id, JSON.stringify(order), false);
-    let ids = [];
-    try {
-      const r = await window.storage.get('my-orders', false);
-      ids = r && r.value ? JSON.parse(r.value) : [];
-    } catch(e){ ids = []; }
-    ids.unshift(id);
-    ids = ids.slice(0, 10);
-    await window.storage.set('my-orders', JSON.stringify(ids), false);
+
+    const docRef = await addDoc(
+        collection(db, "orders"),
+        {
+            ...order,
+            status: "Pending",
+            createdAt: new Date()
+        }
+    );
+
+    console.log("Order saved to Firebase:", docRef.id);
 
     cart = {};
-    await saveCart(); renderCart();
+    await saveCart();
+    renderCart();
+
     showConfirmation(order);
-    loadRecentChips();
-  } catch(err){
+
+} catch(err){
     checkoutError.textContent = "Couldn't place the order — please try again, or WhatsApp us the details.";
     submitBtn.disabled = false;
     if (lastSpan) lastSpan.textContent = 'Place Order — Cash on Delivery';
