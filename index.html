@@ -669,19 +669,18 @@ try {
 
     showConfirmation(order);
 
-} catch(err){
+} catch(err) {
 
     console.error(err);
 
     checkoutError.textContent =
-    "Couldn't place the order — please try again, or WhatsApp us the details.";
+      "Couldn't place the order — please try again, or WhatsApp us the details.";
 
     submitBtn.disabled = false;
 
     if (lastSpan) {
       lastSpan.textContent = 'Place Order — Cash on Delivery';
     }
-
 }
 function showConfirmation(order){
   document.getElementById('checkoutTitle').textContent = 'Order Confirmed';
