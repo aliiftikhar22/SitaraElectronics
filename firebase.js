@@ -48,7 +48,6 @@ const auth = getAuth(app);
 
 export {
     db,
-    auth,
     collection,
     addDoc,
     getDocs,
@@ -57,9 +56,7 @@ export {
     doc,
     getDoc,
     updateDoc,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
+    deleteDoc
 };
 
 console.log("Firebase Connected ✅");
