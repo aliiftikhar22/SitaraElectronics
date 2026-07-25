@@ -663,7 +663,12 @@ async function handleCheckoutSubmit(e){
     );
 
     console.log("Order saved to Firebase:", docRef.id);
-  } catch(err){
+  }     cart = {};
+    await saveCart();
+    renderCart();
+
+    showConfirmation(order);
+ catch(err){
     checkoutError.textContent = "Couldn't place the order — please try again, or WhatsApp us the details.";
     submitBtn.disabled = false;
     if (lastSpan) lastSpan.textContent = 'Place Order — Cash on Delivery';
