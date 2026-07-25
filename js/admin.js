@@ -495,3 +495,4 @@ alert("Failed to add product");
 
 
 };
+}
