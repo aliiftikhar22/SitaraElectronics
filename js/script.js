@@ -118,8 +118,12 @@ function productCard(p){
   return `<div class="product-card">
     <div class="product-media">
       <span class="badge-moq">MOQ: 1 pc</span>${save ? `<span class="badge-save">Save ${save}%</span>` : ''}
-      ${ICONS[p.icon] || ICONS.default}
-    </div>
+${
+  p.image
+    ? `<img src="${p.image}" class="product-image" alt="${p.name}">`
+    : (ICONS[p.icon] || ICONS.default)
+}
+</div>
     <div class="product-body">
       <div class="cat-label">${p.cat}</div>
       <h3>${p.name}</h3>
