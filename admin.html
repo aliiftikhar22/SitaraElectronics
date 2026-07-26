@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
 </head>
 <body class="admin-body">
 
@@ -101,19 +101,46 @@
   <form id="productForm">
     <input type="hidden" id="pfId">
     <div class="field"><label>Product Name</label><input type="text" id="pfName" required></div>
+    <div class="field">
+      <label>Product Photo</label>
+      <div class="image-upload-row">
+        <div class="image-preview" id="pfImagePreviewWrap">
+          <img id="pfImagePreview" style="display:none;" alt="Product photo preview">
+          <span id="pfImagePlaceholder">No photo</span>
+        </div>
+        <div class="image-upload-controls">
+          <input type="file" id="pfImageFile" accept="image/*">
+          <button type="button" class="btn btn-ghost btn-small" id="pfImageRemove" style="display:none; margin-top:8px;"><span>Remove Photo</span></button>
+        </div>
+      </div>
+      <input type="hidden" id="pfImageUrl">
+      <p class="image-hint">Photos are stored directly in the database and auto-compressed — very large images will be shrunk to fit.</p>
+    </div>
     <div class="field-row">
       <div class="field">
         <label>Category</label>
         <select id="pfCategory" required>
-          <option>Refrigerators</option><option>Ovens</option><option>Microwaves</option>
-          <option>Heaters</option><option>Air Conditioners</option><option>Irons</option>
+          <option>Refrigerators</option><option>Freezers</option>
+          <option>Air Conditioners</option><option>Air Coolers</option>
+          <option>Ovens</option><option>Microwaves</option><option>Air Fryers</option>
+          <option>Heaters</option><option>Water Heaters</option>
+          <option>Washing Machines</option><option>Irons</option>
+          <option>Water Dispensers</option><option>Electric Fans</option>
+          <option>Rice Cookers</option><option>Blenders &amp; Juicers</option>
+          <option>Vacuum Cleaners</option>
         </select>
       </div>
       <div class="field">
-        <label>Icon</label>
+        <label>Icon <span style="color:var(--text-faint); font-weight:400;">(used only if no photo)</span></label>
         <select id="pfIcon">
-          <option value="fridge">Fridge</option><option value="oven">Oven</option><option value="microwave">Microwave</option>
-          <option value="heater">Heater</option><option value="ac">AC</option><option value="iron">Iron</option>
+          <option value="fridge">Fridge</option><option value="freezer">Freezer</option>
+          <option value="ac">AC</option><option value="cooler">Air Cooler</option>
+          <option value="oven">Oven</option><option value="microwave">Microwave</option>
+          <option value="airfryer">Air Fryer</option><option value="heater">Heater</option>
+          <option value="geyser">Water Heater</option><option value="washer">Washing Machine</option>
+          <option value="iron">Iron</option><option value="dispenser">Water Dispenser</option>
+          <option value="fan">Fan</option><option value="ricecooker">Rice Cooker</option>
+          <option value="blender">Blender</option><option value="vacuum">Vacuum</option>
         </select>
       </div>
     </div>
@@ -127,6 +154,6 @@
   </form>
 </div>
 
-<script type="module" src="js/admin.js"></script>
+<script type="module" src="admin.js"></script>
 </body>
 </html>
