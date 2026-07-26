@@ -30,6 +30,36 @@ const dashboard = document.getElementById('dashboard');
 const fbNotice = document.getElementById('fbNotice');
 const loginBtn = document.getElementById('loginBtn');
 const loginError = document.getElementById('loginError');
+// Product image elements
+const pfImage = document.getElementById("pfImage");
+const pfImagePreview = document.getElementById("pfImagePreview");
+
+let imageBase64 = "";
+if (pfImage) {
+    pfImage.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+            imageBase64 = e.target.result;
+
+            if (pfImagePreview) {
+                pfImagePreview.src = imageBase64;
+                pfImagePreview.style.display = "block";
+            }
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+}
+
 
 if (!isFirebaseConfigured){
   fbNotice.textContent = 'Firebase is not connected yet — paste your project config into firebase-config.js, then reload this page.';
@@ -154,7 +184,16 @@ productForm.addEventListener('submit', async (e) => {
   const specs = document.getElementById('pfSpecs').value.split(',').map(s => s.trim()).filter(Boolean);
   if (!name || isNaN(price)){ productFormError.textContent = 'Name and wholesale price are required.'; return; }
   const save = old && old > price ? Math.round(100 - (price/old)*100) : 0;
-  const data = { name, cat, icon, price, old, specs, save };
+const data = {
+  name,
+  cat,
+  icon,
+  image: imageBase64,
+  price,
+  old,
+  specs,
+  save
+};
   try {
     if (id){ await updateDoc(doc(db, 'products', id), data); }
     else { await addDoc(collection(db, 'products'), data); }
