@@ -232,8 +232,14 @@ function renderCart(){
     const p = findProduct(id);
     if (!p) return '';
     return `<div class="cart-line">
-      <div class="ci-icon">${ICONS[p.icon] || ICONS.default}</div>
-      <div class="ci-info">
+<div class="ci-icon">
+  ${
+    p.image
+      ? `<img src="${p.image}" class="cart-image" alt="${p.name}">`
+      : (ICONS[p.icon] || ICONS.default)
+  }
+</div>
+<div class="ci-info">
         <h4>${p.name}</h4>
         <div class="ci-price">${pkr(p.price)} × ${qty} = <b style="color:var(--accent-bright)">${pkr(p.price*qty)}</b></div>
         <div class="qty-stepper" style="margin-top:8px; width:fit-content;">
