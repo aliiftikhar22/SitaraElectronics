@@ -551,3 +551,16 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
+.product-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.cart-image{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    display:block;
+}
