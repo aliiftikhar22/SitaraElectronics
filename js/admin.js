@@ -38,6 +38,8 @@ let imageBase64 = "";
 if (pfImage) {
     pfImage.addEventListener("change", function () {
 
+        console.log("File selected:", this.files[0]);
+
         const file = this.files[0];
 
         if (!file) return;
@@ -47,6 +49,8 @@ if (pfImage) {
         reader.onload = function (e) {
 
             imageBase64 = e.target.result;
+
+            console.log("Image loaded:", imageBase64.substring(0, 50));
 
             if (pfImagePreview) {
                 pfImagePreview.src = imageBase64;
@@ -59,7 +63,6 @@ if (pfImage) {
 
     });
 }
-
 
 if (!isFirebaseConfigured){
   fbNotice.textContent = 'Firebase is not connected yet — paste your project config into firebase-config.js, then reload this page.';
