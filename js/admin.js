@@ -187,6 +187,7 @@ productForm.addEventListener('submit', async (e) => {
   const specs = document.getElementById('pfSpecs').value.split(',').map(s => s.trim()).filter(Boolean);
   if (!name || isNaN(price)){ productFormError.textContent = 'Name and wholesale price are required.'; return; }
   const save = old && old > price ? Math.round(100 - (price/old)*100) : 0;
+  console.log("Saving image:", imageBase64);
 const data = {
   name,
   cat,
