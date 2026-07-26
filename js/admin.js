@@ -31,7 +31,7 @@ const fbNotice = document.getElementById('fbNotice');
 const loginBtn = document.getElementById('loginBtn');
 const loginError = document.getElementById('loginError');
 // Product image elements
-const pfImage = document.getElementById("pfImage");
+const pfImage = document.getElementById("pfImageFile");
 const pfImagePreview = document.getElementById("pfImagePreview");
 
 let imageBase64 = "";
