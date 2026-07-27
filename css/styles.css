@@ -970,23 +970,17 @@ header{
 }
 
 }
-.brand{
-    align-items:center;
-}
-
 .brand-mark{
-    width:60px !important;
-  height:60px !important;
+  width:34px;
+  height:34px;
   position:relative;
   flex-shrink:0;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-
-.brand-mark img{
-    width:90px !important;
-    height:90px !important;
+.full-logo{
+    width:170px;
+    height:auto;
     object-fit:contain;
-    transform:scale(1.5);
 }
