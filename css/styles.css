@@ -152,8 +152,8 @@ header.scrolled{
 .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:24px;}
 .brand{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:.01em;}
 .brand-mark{
-  width:55px;
-  height:55px;
+  width:70px !important;
+  height:70px !important;
   position:relative;
   flex-shrink:0;
   display:flex;
@@ -981,8 +981,7 @@ header{
 
 }
 .brand-mark img{
-    width:55px;
-    height:55px;
+    width:70px !important;
+    height:70px !important;
     object-fit:contain;
-    display:block;
 }
