@@ -487,17 +487,22 @@ loadCart();
 loadRecentChips();
 const productSearch = document.getElementById("productSearch");
 
-productSearch.addEventListener("input", function(){
+if(productSearch){
 
-    currentSearch = this.value.trim().toLowerCase();
+    productSearch.addEventListener("input", function(){
 
-    // Go to products section when typing
-    if(currentSearch.length > 0){
-        document.getElementById("products").scrollIntoView({
-            behavior: "smooth"
-        });
-    }
+        currentSearch = this.value.trim().toLowerCase();
 
-    renderProducts(currentFilter);
+        renderProducts(currentFilter);
 
-});
+        if(this.value.trim() !== ""){
+
+            document.getElementById("products").scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
+
+}
