@@ -564,3 +564,68 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     object-fit:contain;
     display:block;
 }
+.products-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:28px;
+    margin-bottom:26px;
+    flex-wrap:wrap;
+}
+
+.product-search{
+    position:relative;
+    width:420px;
+    max-width:100%;
+}
+
+.product-search input{
+    width:100%;
+    height:56px;
+
+    background:rgba(19,26,43,.85);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:0 18px 0 56px;
+
+    color:#F4F1EA;
+
+    font-size:15px;
+
+    transition:.35s;
+}
+
+.product-search input::placeholder{
+    color:#8A93AD;
+}
+
+.product-search input:focus{
+    outline:none;
+
+    border-color:var(--accent);
+
+    box-shadow:0 0 25px rgba(94,132,255,.25);
+}
+
+.search-icon{
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:20px;
+
+    height:20px;
+
+    stroke:#8A93AD;
+
+    stroke-width:2;
+
+    fill:none;
+}
