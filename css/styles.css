@@ -752,7 +752,6 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     position:relative;
     width:420px;
     max-width:100%;
-  z-index:1;
 }
 
 .product-search input{
@@ -854,36 +853,4 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     to{
         transform:translateX(-50%);
     }
-}
-@media (max-width:768px){
-
-    .product-search{
-        display:none;
-        position:absolute;
-        top:75px;
-        left:15px;
-        right:15px;
-        width:auto;
-        z-index:999;
-    }
-
-    .product-search.active{
-        display:block;
-    }
-
-    .product-search input{
-        height:45px;
-        border-radius:25px;
-    }
-
-    header{
-        margin-bottom:65px;
-    }
-
-}
-.mobile-search-btn{
-    position:relative;
-    z-index:99999;
-    cursor:pointer;
-    pointer-events:auto;
 }
