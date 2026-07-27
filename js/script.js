@@ -9,8 +9,27 @@ const burger = document.getElementById("burger");
 const navLinks = document.querySelector(".nav-links");
 
 burger.addEventListener("click", () => {
-
     navLinks.classList.toggle("active");
+});
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+        navLinks.classList.remove("active");
+
+    });
 
 });
 
