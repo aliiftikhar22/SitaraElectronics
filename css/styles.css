@@ -880,3 +880,9 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     }
 
 }
+.mobile-search-btn{
+    position:relative;
+    z-index:99999;
+    cursor:pointer;
+    pointer-events:auto;
+}
