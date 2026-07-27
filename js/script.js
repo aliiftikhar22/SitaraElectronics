@@ -504,17 +504,21 @@ productSearch.addEventListener("input", function(){
 const mobileSearchBtn = document.getElementById("mobileSearchBtn");
 const productSearchBox = document.getElementById("productSearchBox");
 
-if(mobileSearchBtn && productSearchBox){
+if (mobileSearchBtn && productSearchBox) {
 
-    mobileSearchBtn.addEventListener("click", ()=>{
+    mobileSearchBtn.addEventListener("click", function(){
 
         productSearchBox.classList.toggle("active");
 
         document.getElementById("products").scrollIntoView({
-            behavior:"smooth"
+            behavior: "smooth"
         });
 
-        document.getElementById("productSearch").focus();
+        const searchInput = document.getElementById("productSearch");
+
+        if(searchInput){
+            searchInput.focus();
+        }
 
     });
 
