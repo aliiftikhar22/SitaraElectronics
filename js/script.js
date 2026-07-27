@@ -501,32 +501,3 @@ productSearch.addEventListener("input", function(){
     renderProducts(currentFilter);
 
 });
-const mobileSearchBtn = document.getElementById("mobileSearchBtn");
-const productSearchBox = document.getElementById("productSearchBox");
-
-if (mobileSearchBtn && productSearchBox) {
-
-    mobileSearchBtn.addEventListener("click", function(){
-
-        productSearchBox.classList.toggle("active");
-
-        document.getElementById("products").scrollIntoView({
-            behavior: "smooth"
-        });
-
-        const searchInput = document.getElementById("productSearch");
-
-        if(searchInput){
-            searchInput.focus();
-        }
-
-    });
-
-}
-console.log("SCRIPT LOADED");
-
-const mobileSearchBtn = document.getElementById("mobileSearchBtn");
-const productSearchBox = document.getElementById("productSearchBox");
-
-console.log(mobileSearchBtn);
-console.log(productSearchBox);
