@@ -857,12 +857,17 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
 @media (max-width:768px){
 
     .product-search{
+        display:none;
         position:absolute;
         top:75px;
         left:15px;
         right:15px;
         width:auto;
         z-index:999;
+    }
+
+    .product-search.active{
+        display:block;
     }
 
     .product-search input{
