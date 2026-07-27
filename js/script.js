@@ -109,7 +109,11 @@ const FALLBACK_PRODUCTS = [
 ];
 let LIVE_PRODUCTS = FALLBACK_PRODUCTS;
 let currentFilter = 'All';
-function pkr(n){ return 'Rs ' + Number(n||0).toLocaleString('en-PK'); }
+let currentSearch = "";
+
+function pkr(n){
+  return 'Rs ' + Number(n || 0).toLocaleString('en-PK');
+}
 
 // ================= RENDER PRODUCTS =================
 const productGrid = document.getElementById('productGrid');
@@ -147,12 +151,35 @@ ${
   </div>`;
 }
 function renderProducts(filter){
+
   currentFilter = filter || currentFilter;
-  const list = (currentFilter === 'All') ? LIVE_PRODUCTS : LIVE_PRODUCTS.filter(p => p.cat === currentFilter);
+
+  let list = (currentFilter === 'All')
+      ? LIVE_PRODUCTS
+      : LIVE_PRODUCTS.filter(p => p.cat === currentFilter);
+
+  if(currentSearch){
+
+    list = list.filter(p =>
+
+      p.name.toLowerCase().includes(currentSearch) ||
+
+      p.cat.toLowerCase().includes(currentSearch) ||
+
+      (p.specs || []).join(" ").toLowerCase().includes(currentSearch)
+
+    );
+
+  }
+
   productGrid.innerHTML = list.length
+
     ? list.map(productCard).join('')
-    : `<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:40px 0;">No products in this category yet.</p>`;
+
+    : `<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:40px 0;">No products found.</p>`;
+
   productGrid.querySelectorAll('.product-card').forEach(el => io.observe(el));
+
 }
 function stepQty(id, delta){
   const input = document.getElementById('qty-' + id);
@@ -462,17 +489,8 @@ const productSearch = document.getElementById("productSearch");
 
 productSearch.addEventListener("input", function(){
 
-    const keyword = this.value.toLowerCase();
+    currentSearch = this.value.trim().toLowerCase();
 
-    document.querySelectorAll(".product-card").forEach(card=>{
-
-        const text = card.innerText.toLowerCase();
-
-        card.style.display =
-            text.includes(keyword)
-            ? ""
-            : "none";
-
-    });
+    renderProducts(currentFilter);
 
 });
