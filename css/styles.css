@@ -151,16 +151,6 @@ header.scrolled{
 }
 .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:24px;}
 .brand{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:.01em;}
-.brand-mark{
-  width:70px !important;
-  height:70px !important;
-  position:relative;
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.brand-mark svg{width:100%; height:100%;}
 .brand small{display:block; font-family:var(--mono); font-weight:400; font-size:9.5px; letter-spacing:.16em; color:var(--accent-bright); text-transform:uppercase; margin-top:1px;}
 
 .nav-links{display:flex; align-items:center; gap:38px;}
@@ -980,8 +970,24 @@ header{
 }
 
 }
+.brand{
+    align-items:center;
+}
+
+.brand-mark{
+    width:70px !important;
+  height:70px !important;
+  position:relative;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .brand-mark img{
     width:70px !important;
     height:70px !important;
+    max-width:none !important;
+    max-height:none !important;
     object-fit:contain;
 }
