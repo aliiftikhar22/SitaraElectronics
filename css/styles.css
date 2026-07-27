@@ -854,3 +854,16 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
         transform:translateX(-50%);
     }
 }
+@media (max-width:768px){
+
+  .nav-links,
+  .nav-phone,
+  .nav-cta .btn{
+      display:none;
+  }
+
+  .burger{
+      display:flex;
+  }
+
+}
