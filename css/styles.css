@@ -752,6 +752,7 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     position:relative;
     width:420px;
     max-width:100%;
+  z-index:1;
 }
 
 .product-search input{
