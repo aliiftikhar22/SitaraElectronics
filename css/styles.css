@@ -832,6 +832,10 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     border-radius:20px;
     padding:25px;
 }
+.orient-logo img{
+    max-width:130px;
+    max-height:60px;
+}
 
 .brand-item img{
     max-width:160px;
