@@ -523,5 +523,10 @@ if (mobileSearchBtn && productSearchBox) {
     });
 
 }
+console.log("SCRIPT LOADED");
+
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+const productSearchBox = document.getElementById("productSearchBox");
+
 console.log(mobileSearchBtn);
 console.log(productSearchBox);
