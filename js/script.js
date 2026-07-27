@@ -491,6 +491,13 @@ productSearch.addEventListener("input", function(){
 
     currentSearch = this.value.trim().toLowerCase();
 
+    // Go to products section when typing
+    if(currentSearch.length > 0){
+        document.getElementById("products").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
     renderProducts(currentFilter);
 
 });
