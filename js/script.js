@@ -495,7 +495,12 @@ if(productSearch){
 
         renderProducts(currentFilter);
 
-        if(this.value.trim() !== ""){
+    });
+
+
+    productSearch.addEventListener("keydown", function(e){
+
+        if(e.key === "Enter"){
 
             document.getElementById("products").scrollIntoView({
                 behavior:"smooth"
