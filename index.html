@@ -143,12 +143,32 @@
 <!-- ================= PRODUCTS / SHOP ================= -->
 <section class="section-pad" id="products" style="padding-top:0;">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Shop The Wholesale Catalog</div>
-      <h2>Add to cart. Check out. Track it.</h2>
-      <p>Set the quantity — even 1 — and add straight to your cart. Every price shown is already the wholesale rate.</p>
+    <div class="products-header reveal">
+
+    <div>
+        <div class="eyebrow">Shop The Wholesale Catalog</div>
+        <h2>Browse Products</h2>
+        <p>Search products instantly or browse by category.</p>
     </div>
-    <div class="filter-row" id="filterRow">
+
+    <div class="product-search">
+
+        <svg class="search-icon" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20L17 17"></path>
+        </svg>
+
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search refrigerators, AC, ovens..."
+        >
+
+    </div>
+
+</div>
+
+<div class="filter-row" id="filterRow">
       <button class="filter-chip active" data-filter="All">All</button>
       <button class="filter-chip" data-filter="Refrigerators">Refrigerators</button>
       <button class="filter-chip" data-filter="Ovens">Ovens</button>
