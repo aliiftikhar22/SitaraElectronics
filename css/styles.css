@@ -152,8 +152,13 @@ header.scrolled{
 .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:24px;}
 .brand{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:.01em;}
 .brand-mark{
-  width:34px; height:34px; position:relative; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
+  width:55px;
+  height:55px;
+  position:relative;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .brand-mark svg{width:100%; height:100%;}
 .brand small{display:block; font-family:var(--mono); font-weight:400; font-size:9.5px; letter-spacing:.16em; color:var(--accent-bright); text-transform:uppercase; margin-top:1px;}
@@ -976,8 +981,8 @@ header{
 
 }
 .brand-mark img{
-    width:60px;
-    height:60px;
+    width:55px;
+    height:55px;
     object-fit:contain;
     display:block;
 }
