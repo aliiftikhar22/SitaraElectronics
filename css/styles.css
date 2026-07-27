@@ -853,10 +853,6 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     max-height:80px;
     object-fit:contain;
 }
-.brand-item img[alt="Orient"]{
-    max-width:130px;
-    max-height:55px;
-}
 .brand-slider:hover .brand-track{
     animation-play-state:paused;
 }
