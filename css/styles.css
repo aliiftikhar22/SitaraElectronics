@@ -975,8 +975,8 @@ header{
 }
 
 .brand-mark{
-    width:70px !important;
-  height:70px !important;
+    width:60px !important;
+  height:60px !important;
   position:relative;
   flex-shrink:0;
   display:flex;
@@ -985,7 +985,8 @@ header{
 }
 
 .brand-mark img{
-    width:100px !important;
-    height:100px !important;
+    width:90px !important;
+    height:90px !important;
     object-fit:contain;
+    transform:scale(1.5);
 }
