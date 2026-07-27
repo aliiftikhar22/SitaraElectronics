@@ -186,8 +186,10 @@ header.scrolled{
   align-items:center;
   gap:8px;
 }
-.nav-phone strong{color:var(--accent-bright); font-weight:500;}
-
+.nav-phone strong{
+  color:var(--accent);
+  font-weight:700;
+}
 .burger{
 display:flex;
 flex-direction:column;
