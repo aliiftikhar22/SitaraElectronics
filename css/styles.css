@@ -1,3 +1,6 @@
+html{
+    scroll-behavior:smooth;
+}
 /* ============ TOKENS ============ */
 :root{
   --void:#F7F5F0;
