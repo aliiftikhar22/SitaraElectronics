@@ -5,12 +5,13 @@ window.addEventListener('scroll', () => {
 }, { passive:true });
 
 // ===== MOBILE MENU (simple toggle of nav-links display) =====
-const burger = document.getElementById('burger');
-const navLinks = document.querySelector('.nav-links');
-burger.addEventListener('click', () => {
-  const open = navLinks.style.display === 'flex';
-  navLinks.style.display = open ? 'none' : 'flex';
-  navLinks.style.cssText += open ? '' : 'position:fixed; top:70px; left:20px; right:20px; background:rgba(10,14,24,0.97); flex-direction:column; padding:26px; border-radius:16px; border:1px solid rgba(76,127,238,0.2); gap:20px; z-index:200;';
+const burger = document.getElementById("burger");
+const navLinks = document.querySelector(".nav-links");
+
+burger.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
 });
 
 // ===== STARFIELD CANVAS =====
