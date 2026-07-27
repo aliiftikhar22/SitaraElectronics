@@ -185,7 +185,19 @@ header.scrolled{
 }
 .nav-phone strong{color:var(--accent-bright); font-weight:500;}
 
-.burger{display:none; flex-direction:column; gap:5px; width:24px;}
+.burger{
+display:flex;
+flex-direction:column;
+gap:5px;
+width:24px;
+cursor:pointer;
+}
+
+@media(min-width:769px){
+.burger{
+display:none;
+}
+}
 .burger span{
     height:2px;
     background:#1A2333;
