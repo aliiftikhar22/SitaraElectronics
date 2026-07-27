@@ -523,3 +523,5 @@ if (mobileSearchBtn && productSearchBox) {
     });
 
 }
+console.log(mobileSearchBtn);
+console.log(productSearchBox);
