@@ -817,9 +817,9 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
 
 .brand-track{
     display:flex;
-    gap:50px;
+    gap:35px;
     width:max-content;
-    animation:brandMove 20s linear infinite;
+    animation:brandMove 25s linear infinite;
 }
 
 .brand-item{
@@ -837,6 +837,9 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     max-width:160px;
     max-height:80px;
     object-fit:contain;
+}
+.brand-slider:hover .brand-track{
+    animation-play-state:paused;
 }
 
 @keyframes brandMove{
