@@ -458,3 +458,21 @@ function loadRecentChips(){
 // ================= INIT =================
 loadCart();
 loadRecentChips();
+const productSearch = document.getElementById("productSearch");
+
+productSearch.addEventListener("input", function(){
+
+    const keyword = this.value.toLowerCase();
+
+    document.querySelectorAll(".product-card").forEach(card=>{
+
+        const text = card.innerText.toLowerCase();
+
+        card.style.display =
+            text.includes(keyword)
+            ? ""
+            : "none";
+
+    });
+
+});
