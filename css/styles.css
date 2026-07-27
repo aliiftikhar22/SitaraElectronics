@@ -802,3 +802,48 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     stroke-width:2;
     fill:none;
 }
+/* ============ BRAND SLIDER ============ */
+
+.brands-section{
+    padding:60px 0;
+    overflow:hidden;
+    text-align:center;
+}
+
+.brand-slider{
+    margin-top:40px;
+    overflow:hidden;
+}
+
+.brand-track{
+    display:flex;
+    gap:50px;
+    width:max-content;
+    animation:brandMove 20s linear infinite;
+}
+
+.brand-item{
+    width:150px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:white;
+    border-radius:15px;
+    padding:15px;
+}
+
+.brand-item img{
+    max-width:120px;
+    max-height:50px;
+    object-fit:contain;
+}
+
+@keyframes brandMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
