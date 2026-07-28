@@ -998,15 +998,29 @@ header{
 @media (max-width:768px){
 
     header{
-        padding:8px 0;
+        padding:2px 0;
     }
 
     .nav-inner{
-        min-height:56px;
+        min-height:52px;
     }
 
     .full-logo{
-        width:100px;
+        width:145px;
+    }
+
+}
+@media (max-width:768px){
+
+    .container{
+        padding:0 16px;
+    }
+
+}
+@media (max-width:768px){
+
+    .nav-cta{
+        display:none;
     }
 
 }
