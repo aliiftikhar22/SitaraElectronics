@@ -991,6 +991,10 @@ header{
 .offer-btn{
     margin-top:25px;
 }
+.full-logo{
+    width:220px;
+    height:auto;
+}
 @media (max-width:768px){
 
     header{
@@ -1002,7 +1006,7 @@ header{
     }
 
     .full-logo{
-        width:130px;
+        width:170px;
     }
 
 }
