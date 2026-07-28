@@ -877,7 +877,25 @@ header{
 }
 
 .nav-links,
-.nav-phone,
+..nav-phone{
+        display:flex;
+        align-items:center;
+        font-size:0;    /* Hide the phone number */
+    }
+    nav-phone strong{
+        display:none;   /* Hide only the number */
+    }
+    nav-phone::before{
+        content:"☎";
+        font-size:18px;
+        color:var(--accent);
+    }
+.nav-cta{
+        display:flex;
+        align-items:center;
+        gap:14px;
+    }
+
 .nav-cta .btn{
     display:none;
 }
