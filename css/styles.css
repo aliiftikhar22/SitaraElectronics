@@ -1028,3 +1028,40 @@ header{
     }
 
 }
+.founder-hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#eaf6ff,#ffffff);
+}
+
+
+.founders-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:60px 20px;
+    flex-wrap:wrap;
+}
+
+
+.founder-card{
+    width:320px;
+    text-align:center;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+
+.founder-card img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+
+.founder-card h3{
+    color:#0077ff;
+}
