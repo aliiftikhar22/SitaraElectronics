@@ -15,17 +15,29 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
     link.addEventListener("click", function(e) {
 
-        e.preventDefault();
+        const href = this.getAttribute("href");
 
-        const target = document.querySelector(this.getAttribute("href"));
+        // Smooth scroll only for sections on the same page
+        if (href.startsWith("#")) {
 
-        if(target){
+            e.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
+            const target = document.querySelector(href);
+
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
 
         }
+
+        // Close mobile menu
+        document.querySelector(".nav-links").classList.remove("active");
+
+    });
+
+});
 
         navLinks.classList.remove("active");
 
