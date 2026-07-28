@@ -39,12 +39,6 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 });
 
-        navLinks.classList.remove("active");
-
-    });
-
-});
-
 // ===== STARFIELD CANVAS =====
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
