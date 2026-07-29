@@ -1278,3 +1278,18 @@ header{
     .foot-grid{grid-template-columns:1fr;gap:28px;}
     .wrap{padding:0 20px;}
   }
+/* ===== Footer Logo ===== */
+
+.footer-brand{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    margin-bottom:18px;
+}
+
+.footer-logo{
+    width:220px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
