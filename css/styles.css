@@ -1366,16 +1366,7 @@ header{
 .cat-card:hover .icon img{
     transform:scale(1.08);
 }
-@media (max-width: 768px) {
 
-  .founder-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 20px;
-    gap: 16px;
-  }
-
-}
 @media (max-width:768px){
 
     .founders-grid{
@@ -1383,9 +1374,9 @@ header{
     }
 
     .founder-card{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
+        display:grid;
+        grid-template-columns:1fr !important;
+        justify-items:center;
         text-align:center;
         padding:20px;
         gap:20px;
@@ -1393,13 +1384,13 @@ header{
 
     .founder-card .photo{
         width:180px;
-        max-width:100%;
+        height:230px;
     }
 
     .founder-card .photo img{
         width:100%;
-        height:auto;
-        display:block;
+        height:100%;
+        object-fit:contain;
     }
 
 }
