@@ -1303,3 +1303,6 @@ header{
     display:block;
     object-fit:contain;
 }
+.brand{
+    flex-shrink:0;
+}
