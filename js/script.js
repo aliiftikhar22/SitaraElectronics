@@ -138,7 +138,6 @@ const FALLBACK_PRODUCTS = [
   old:8500,
   save:27,
   icon:'fan',
-  image:'images/products/Fan.png'
 },
   { id:'ac-15', cat:'Air Conditioners', name:'Split Inverter AC 1.5 Ton', specs:['1.5 Ton','Inverter','DC Motor'], price:118000, old:145000, save:19, icon:'ac' },
   { id:'irn-cer', cat:'Irons', name:'Ceramic Steam Iron', specs:['Ceramic Plate','Steam Burst'], price:2100, old:3200, save:34, icon:'iron' }
