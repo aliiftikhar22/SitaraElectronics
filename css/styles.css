@@ -1306,3 +1306,22 @@ header{
 .brand{
     flex-shrink:0;
 }
+.icon{
+    width:80px;
+    height:80px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.icon img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    transition:transform .35s ease;
+}
+
+.cat-card:hover .icon img{
+    transform:scale(1.08);
+}
