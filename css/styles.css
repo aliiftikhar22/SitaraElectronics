@@ -367,16 +367,20 @@ display:none;
 .cat-card.in{opacity:1; transform:translateY(0);}
 .cat-card:hover{ transform:translateY(-8px); border-color:var(--accent); background:rgba(76,127,238,0.06); }
 .cat-card .icon{
-  width:52px; height:52px; margin:0 auto 16px; color:var(--accent-bright);
-  display:flex; align-items:center; justify-content:center;
+  width:70px;
+  height:70px;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+
 .cat-card .icon img{
     width:100%;
     height:100%;
     object-fit:contain;
     transition:transform .35s ease;
 }
-
 .cat-card:hover 
 .icon img{
     transform:scale(1.08);
