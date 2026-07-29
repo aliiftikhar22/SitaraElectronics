@@ -153,7 +153,16 @@ header.scrolled{
 .brand{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:.01em;}
 .brand small{display:block; font-family:var(--mono); font-weight:400; font-size:9.5px; letter-spacing:.16em; color:var(--accent-bright); text-transform:uppercase; margin-top:1px;}
 
-.nav-links{display:flex; align-items:center; gap:38px;}
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:nowrap;
+}
+
+.nav-links a{
+    white-space:nowrap;
+}
 .nav-links a{
   font-size:14px;
   font-weight:500;
