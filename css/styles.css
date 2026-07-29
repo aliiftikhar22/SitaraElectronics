@@ -370,7 +370,17 @@ display:none;
   width:52px; height:52px; margin:0 auto 16px; color:var(--accent-bright);
   display:flex; align-items:center; justify-content:center;
 }
-.cat-card .icon svg{width:100%; height:100%;}
+.cat-card .icon img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:transform .35s ease;
+}
+
+.cat-card:hover 
+.icon img{
+    transform:scale(1.08);
+}
 .cat-card h3{ font-size:14.5px; font-weight:600; margin-bottom:5px; }
 .cat-card span{ font-size:11.5px; color:var(--text-faint); font-family:var(--mono); }
 
