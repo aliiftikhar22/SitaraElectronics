@@ -854,7 +854,7 @@ footer{ padding:90px 0 30px; margin-top:120px; border-top:1px solid var(--line);
     display:flex;
     gap:35px;
     width:max-content;
-    animation:brandMove 25s linear infinite;
+    animation:brandMove 15s linear infinite;
 }
 
 .brand-item{
