@@ -129,7 +129,17 @@ const FALLBACK_PRODUCTS = [
   { id:'ref-12', cat:'Refrigerators', name:'Frost-Free Refrigerator 12 CFT', specs:['12 CFT','Frost-Free','2-Door'], price:54900, old:68000, save:19, icon:'fridge' },
   { id:'ovn-60', cat:'Ovens', name:'Built-in Baking Oven 60L', specs:['60L','Rotisserie','Digital'], price:25500, old:32000, save:20, icon:'oven' },
   { id:'mwv-25', cat:'Microwaves', name:'Digital Microwave Oven 25L', specs:['25L','Grill','Touch Panel'], price:16800, old:21000, save:20, icon:'microwave' },
-  { id:'htr-2000', cat:'Heaters', name:'Room Heater 2000W', specs:['2000W','Tip-over Safety','Fan Type'], price:6200, old:8500, save:27, icon:'heater' },
+{
+  id:'fan-001',
+  cat:'Fans',
+  name:'Ceiling Fan 56"',
+  specs:['56 Inch','Copper Motor','Energy Efficient'],
+  price:6200,
+  old:8500,
+  save:27,
+  icon:'fan',
+  image:'images/products/Fan.png'
+},
   { id:'ac-15', cat:'Air Conditioners', name:'Split Inverter AC 1.5 Ton', specs:['1.5 Ton','Inverter','DC Motor'], price:118000, old:145000, save:19, icon:'ac' },
   { id:'irn-cer', cat:'Irons', name:'Ceramic Steam Iron', specs:['Ceramic Plate','Steam Burst'], price:2100, old:3200, save:34, icon:'iron' }
 ];
