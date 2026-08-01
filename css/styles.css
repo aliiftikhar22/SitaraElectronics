@@ -1517,3 +1517,13 @@ header{
         border-radius: 3px;
     }
 }
+.btn-ghost {
+    background: #eaf7ff;
+    color: #0879b9;
+    border: 1px solid #b9e5f8;
+}
+
+.btn-ghost:hover {
+    background: #d8f0fc;
+    color: #05618f;
+}
