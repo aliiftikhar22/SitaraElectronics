@@ -1378,3 +1378,29 @@ header{
     }
 
 }
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.brand-name{
+    font-family:var(--display);
+    font-size:20px;
+    color:var(--text);
+    white-space:nowrap;
+}
+
+.brand-name strong{
+    font-weight:800;
+}
+
+.brand-name span{
+    font-weight:400;
+}
+    @media (max-width:768px){
+    .brand-name{
+        font-size:16px;
+    }
+}
