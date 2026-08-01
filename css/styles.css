@@ -1405,13 +1405,52 @@ header{
     }
 }
 @media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-phone {
+        display: none;
+    }
+
+    .nav-cta .btn {
+        display: none;
+    }
+
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
     .cart-btn {
         width: 42px;
         height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .burger {
+        display: flex;
         width: 42px;
         height: 42px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: none;
+        background: transparent;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .burger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: var(--text);
+        border-radius: 3px;
     }
 }
