@@ -1454,3 +1454,66 @@ header{
         border-radius: 3px;
     }
 }
+@media (max-width: 768px) {
+
+    header {
+        padding: 8px 0;
+    }
+
+    .nav-inner {
+        min-height: 56px;
+        padding: 0 18px;
+        gap: 8px;
+    }
+
+    .brand {
+        flex: 1;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .full-logo {
+        width: 60px;
+        height: auto;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .nav-links,
+    .nav-phone,
+    .nav-cta .btn {
+        display: none;
+    }
+
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .cart-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .burger {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        padding: 6px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .burger span {
+        width: 22px;
+        height: 3px;
+        display: block;
+        background: var(--text);
+        border-radius: 3px;
+    }
+}
