@@ -432,7 +432,7 @@ document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
 document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
 document.getElementById('modalCloseBtn').addEventListener('click', closeCheckout);
 overlay.addEventListener('click', () => { closeCart(); closeCheckout(); });
-
+const selectedProductColors = {};
 // ================= CHECKOUT: RENDER FORM (rebuilt every time the modal opens) =================
 function renderCheckoutForm(){
   document.getElementById('checkoutTitle').textContent = 'Checkout';
@@ -479,7 +479,17 @@ async function handleCheckoutSubmit(e){
   const id = 'STE-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.random().toString(36).slice(2,4).toUpperCase();
   const order = {
     id,
-    items: Object.entries(cart).map(([pid, qty]) => { const p = findProduct(pid); return { name: p.name, qty, price: p.price }; }),
+items: Object.entries(cart).map(([pid, qty]) => {
+  const p = findProduct(pid);
+
+  return {
+    productId: pid,
+    name: p.name,
+    qty: qty,
+    price: p.price,
+    color: selectedProductColors[pid] || "Not selected"
+  };
+}),
     total: cartTotal(),
     customer: { name, phone, city, address, notes },
     status: 'confirmed',
