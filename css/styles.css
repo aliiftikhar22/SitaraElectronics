@@ -438,6 +438,22 @@ display:none;
 
   border-bottom:1px solid #E6ECF5;
 }
+.product-gallery {
+  width:100%;
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.product-gallery .product-image {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
 
 .product-media svg{
   width:76px;
