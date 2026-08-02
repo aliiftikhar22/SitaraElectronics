@@ -40,6 +40,37 @@ const pfColorsList = document.getElementById("pfColorsList");
 
 let productImages = [];
 let productColors = [];
+// Automatically set the color picker from the color name
+const COLOR_MAP = {
+  black: "#000000",
+  white: "#ffffff",
+  "off white": "#f5f5f5",
+  silver: "#c0c0c0",
+  grey: "#808080",
+  gray: "#808080",
+  red: "#ff0000",
+  blue: "#0000ff",
+  green: "#008000",
+  yellow: "#ffff00",
+  orange: "#ffa500",
+  pink: "#ffc0cb",
+  purple: "#800080",
+  brown: "#8b4513",
+  gold: "#ffd700",
+  beige: "#f5f5dc",
+  cream: "#fffdd0",
+  maroon: "#800000",
+  navy: "#000080",
+  teal: "#008080"
+};
+
+pfColorName.addEventListener("input", () => {
+  const name = pfColorName.value.trim().toLowerCase();
+
+  if (COLOR_MAP[name]) {
+    pfColorHex.value = COLOR_MAP[name];
+  }
+});
 
 function compressImage(file, maxSize = 900, quality = 0.72){
   return new Promise((resolve, reject) => {
