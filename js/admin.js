@@ -392,41 +392,208 @@ const ordersBody = document.getElementById('ordersTableBody');
 const ordersEmpty = document.getElementById('ordersEmpty');
 
 function watchOrders(){
-  onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), (snap) => {
-    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    ordersEmpty.style.display = orders.length ? 'none' : 'block';
-    ordersBody.innerHTML = orders.map(o => `
-      <tr>
-        <td style="font-family:var(--mono); color:var(--text);">${o.id}</td>
-        <td>${(o.customer && o.customer.name) || '—'}<br><span style="font-size:11.5px; color:var(--text-faint);">${(o.customer && o.customer.phone) || ''}</span></td>
-        <td>${(o.customer && o.customer.city) || '—'}</td>
-        <td>${pkr(o.total)}</td>
-        <td>${o.createdAt ? new Date(o.createdAt).toLocaleDateString() : '—'}</td>
-        <td>
-          <select class="status-select ${o.status||'confirmed'}" data-status="${o.id}">
-            <option value="confirmed" ${o.status==='confirmed'?'selected':''}>Order Confirmed</option>
-            <option value="preparing" ${o.status==='preparing'?'selected':''}>Preparing</option>
-            <option value="shipped" ${o.status==='shipped'?'selected':''}>Shipped</option>
-            <option value="delivered" ${o.status==='delivered'?'selected':''}>Delivered</option>
-          </select>
-        </td>
-        <td>
-          <button class="row-btn danger" title="Delete" data-delorder="${o.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg></button>
-        </td>
-      </tr>`).join('');
-    ordersBody.querySelectorAll('[data-status]').forEach(sel => {
-      sel.addEventListener('change', async () => {
-        sel.className = 'status-select ' + sel.value;
-        try { await updateDoc(doc(db, 'orders', sel.dataset.status), { status: sel.value }); }
-        catch(e){ alert('Could not update status.'); }
-      });
-    });
-    ordersBody.querySelectorAll('[data-delorder]').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        if (!confirm('Delete this order? This cannot be undone.')) return;
-        try { await deleteDoc(doc(db, 'orders', btn.dataset.delorder)); }
-        catch(e){ alert('Could not delete order.'); }
-      });
-    });
-  }, (err) => console.error('orders watch error', err));
+  onSnapshot(
+    query(collection(db, 'orders'), orderBy('createdAt', 'desc')),
+    (snap) => {
+
+      const orders = snap.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+      ordersEmpty.style.display = orders.length ? 'none' : 'block';
+
+      ordersBody.innerHTML = orders.map(o => {
+
+        // Product information
+        const items = Array.isArray(o.items) ? o.items : [];
+
+        const productInfo = items.length
+          ? items.map(item => `
+              <div style="
+                margin-bottom:10px;
+                padding-bottom:10px;
+                border-bottom:1px solid rgba(255,255,255,.08);
+              ">
+                <strong style="color:var(--text);">
+                  ${item.name || 'Unknown product'}
+                </strong>
+
+                <div style="
+                  font-size:11.5px;
+                  color:var(--text-faint);
+                  margin-top:4px;
+                ">
+                  Color:
+                  <span style="color:var(--text);">
+                    ${item.color || 'Not selected'}
+                  </span>
+                </div>
+
+                <div style="
+                  font-size:11.5px;
+                  color:var(--text-faint);
+                  margin-top:2px;
+                ">
+                  Qty: ${item.qty || 1}
+                  &nbsp; · &nbsp;
+                  ${pkr(item.price || 0)}
+                </div>
+              </div>
+            `).join('')
+          : '<span style="color:var(--text-faint);">No product information</span>';
+
+        return `
+          <tr>
+
+            <!-- ORDER ID -->
+            <td style="
+              font-family:var(--mono);
+              color:var(--text);
+            ">
+              ${o.id}
+            </td>
+
+            <!-- CUSTOMER -->
+            <td>
+              ${(o.customer && o.customer.name) || '—'}
+              <br>
+              <span style="
+                font-size:11.5px;
+                color:var(--text-faint);
+              ">
+                ${(o.customer && o.customer.phone) || ''}
+              </span>
+            </td>
+
+            <!-- PRODUCTS -->
+            <td style="
+              min-width:240px;
+              max-width:340px;
+            ">
+              ${productInfo}
+            </td>
+
+            <!-- CITY -->
+            <td>
+              ${(o.customer && o.customer.city) || '—'}
+            </td>
+
+            <!-- TOTAL -->
+            <td>
+              ${pkr(o.total)}
+            </td>
+
+            <!-- DATE -->
+            <td>
+              ${o.createdAt
+                ? new Date(o.createdAt).toLocaleDateString()
+                : '—'}
+            </td>
+
+            <!-- STATUS -->
+            <td>
+              <select
+                class="status-select ${o.status || 'confirmed'}"
+                data-status="${o.id}"
+              >
+                <option value="confirmed"
+                  ${o.status === 'confirmed' ? 'selected' : ''}>
+                  Order Confirmed
+                </option>
+
+                <option value="preparing"
+                  ${o.status === 'preparing' ? 'selected' : ''}>
+                  Preparing
+                </option>
+
+                <option value="shipped"
+                  ${o.status === 'shipped' ? 'selected' : ''}>
+                  Shipped
+                </option>
+
+                <option value="delivered"
+                  ${o.status === 'delivered' ? 'selected' : ''}>
+                  Delivered
+                </option>
+              </select>
+            </td>
+
+            <!-- DELETE -->
+            <td>
+              <button
+                class="row-btn danger"
+                title="Delete"
+                data-delorder="${o.id}"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/>
+                </svg>
+              </button>
+            </td>
+
+          </tr>
+        `;
+      }).join('');
+
+      // ================= STATUS UPDATE =================
+      ordersBody
+        .querySelectorAll('[data-status]')
+        .forEach(sel => {
+
+          sel.addEventListener('change', async () => {
+
+            sel.className =
+              'status-select ' + sel.value;
+
+            try {
+              await updateDoc(
+                doc(db, 'orders', sel.dataset.status),
+                {
+                  status: sel.value
+                }
+              );
+            } catch(e) {
+              console.error(e);
+              alert('Could not update status.');
+            }
+
+          });
+
+        });
+
+      // ================= DELETE ORDER =================
+      ordersBody
+        .querySelectorAll('[data-delorder]')
+        .forEach(btn => {
+
+          btn.addEventListener('click', async () => {
+
+            if (!confirm(
+              'Delete this order? This cannot be undone.'
+            )) return;
+
+            try {
+              await deleteDoc(
+                doc(db, 'orders', btn.dataset.delorder)
+              );
+            } catch(e) {
+              console.error(e);
+              alert('Could not delete order.');
+            }
+
+          });
+
+        });
+
+    },
+    (err) => {
+      console.error('orders watch error', err);
+    }
+  );
 }
