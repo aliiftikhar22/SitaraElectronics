@@ -144,20 +144,50 @@ if (pfImage) {
 
 function renderColorList(){
   if (!pfColorsList) return;
-  pfColorsList.innerHTML = productColors.map((c, i) => `
-    <div class="admin-color-chip">
-      <span class="swatch" style="background:${c.hex}"></span>
-      <span>${c.name}</span>
-      <span>${c.hex}</span>
-      <button type="button" data-remove-color="${i}" aria-label="Remove color">×</button>
-    </div>
-  `).join('');
-  pfColorsList.querySelectorAll('[data-remove-color]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      productColors.splice(Number(btn.dataset.removeColor), 1);
-      renderColorList();
+
+  pfColorsList.innerHTML = productColors.map((c, i) => {
+    const photoNumber =
+      Number.isInteger(c.imageIndex)
+        ? `Photo ${c.imageIndex + 1}`
+        : 'No photo';
+
+    return `
+      <div class="admin-color-chip">
+        <span
+          class="swatch"
+          style="background:${c.hex}"
+          title="${c.hex}">
+        </span>
+
+        <span>${c.name}</span>
+        <span>${c.hex}</span>
+
+        <span class="color-photo-link">
+          ${photoNumber}
+        </span>
+
+        <button
+          type="button"
+          data-remove-color="${i}"
+          aria-label="Remove color">
+          ×
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  pfColorsList
+    .querySelectorAll('[data-remove-color]')
+    .forEach(btn => {
+      btn.addEventListener('click', () => {
+        productColors.splice(
+          Number(btn.dataset.removeColor),
+          1
+        );
+
+        renderColorList();
+      });
     });
-  });
 }
 
 
