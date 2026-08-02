@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitara Electronics — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<!-- ================= LOGIN ================= -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="brand" style="justify-content:center; margin-bottom:22px;">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="url(#g3)"/>
+          <defs><linearGradient id="g3" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#A9C4FF"/><stop offset="1" stop-color="#16234A"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span>SITARA<br><small>Admin Panel</small></span>
+    </div>
+    <div class="field"><label>Admin Email</label><input type="email" id="loginEmail" autocomplete="username"></div>
+    <div class="field"><label>Password</label><input type="password" id="loginPassword" autocomplete="current-password"></div>
+    <div class="form-error" id="loginError"></div>
+    <button class="btn" id="loginBtn" style="width:100%;"><span class="facet"></span><span>Log In</span></button>
+    <p id="fbNotice" class="fb-notice"></p>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="dashboard" class="dashboard" style="display:none;">
+  <header class="admin-topbar">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="url(#g4)"/>
+          <defs><linearGradient id="g4" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#A9C4FF"/><stop offset="1" stop-color="#16234A"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span>SITARA<br><small>Admin Panel</small></span>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="products">Products</button>
+      <button class="admin-tab" data-tab="orders">Orders</button>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span id="adminEmail" class="admin-email"></span>
+      <button class="btn btn-ghost btn-small" id="logoutBtn"><span>Log Out</span></button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- PRODUCTS TAB -->
+    <section id="tab-products" class="admin-panel-section">
+      <div class="admin-section-head">
+        <h2>Products</h2>
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-ghost btn-small" id="seedBtn"><span>Load Sample Products</span></button>
+          <button class="btn btn-small" id="addProductBtn"><span class="facet"></span><span>+ Add Product</span></button>
+        </div>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Old Price</th><th>Specs</th><th></th></tr></thead>
+          <tbody id="productsTableBody"></tbody>
+        </table>
+        <p id="productsEmpty" class="admin-empty" style="display:none;">No products yet — add one, or click "Load Sample Products" to start with the demo catalog.</p>
+      </div>
+    </section>
+
+    <!-- ORDERS TAB -->
+    <section id="tab-orders" class="admin-panel-section" style="display:none;">
+      <div class="admin-section-head">
+        <h2>Orders</h2>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>City</th><th>Total</th><th>Placed</th><th>Status</th><th></th></tr></thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+        <p id="ordersEmpty" class="admin-empty" style="display:none;">No orders yet.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="overlay" id="pOverlay"></div>
+<div class="modal" id="productModal">
+  <div class="modal-head">
+    <h3 id="productModalTitle">Add Product</h3>
+    <button class="cart-close" id="productModalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <form id="productForm">
+    <input type="hidden" id="pfId">
+    <div class="field"><label>Product Name</label><input type="text" id="pfName" required></div>
+    <div class="field">
+      <label>Product Photos <span style="color:var(--text-faint); font-weight:400;">(multiple)</span></label>
+      <div class="multi-image-upload">
+        <input type="file" id="pfImageFile" accept="image/*" multiple>
+        <div id="pfImagePreviewGrid" class="image-preview-grid"></div>
+      </div>
+      <p class="image-hint">Upload multiple photos. Images are compressed in the browser and stored in Firebase Storage. The first photo is used as the main product image.</p>
+    </div>
+
+    <div class="field">
+      <label>Product Colors</label>
+      <div class="color-builder">
+        <div class="color-builder-row">
+          <input type="text" id="pfColorName" placeholder="Color name e.g. White">
+          <input type="color" id="pfColorHex" value="#ffffff" title="Choose color">
+          <button type="button" class="btn btn-ghost btn-small" id="pfAddColor"><span>+ Add Color</span></button>
+        </div>
+        <div id="pfColorsList" class="admin-colors-list"></div>
+      </div>
+      <p class="image-hint">Add the colors available for this product. Customers will see clickable color swatches on the product card.</p>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Category</label>
+        <select id="pfCategory" required>
+          <option>Refrigerators</option><option>Freezers</option>
+          <option>Air Conditioners</option><option>Air Coolers</option><option>Fans</option>
+          <option>Ovens</option><option>Microwaves</option><option>Air Fryers</option>
+          <option>Heaters</option><option>Water Heaters</option>
+          <option>Washing Machines</option><option>Irons</option>
+          <option>Water Dispensers</option><option>Electric Fans</option>
+          <option>Rice Cookers</option><option>Blenders &amp; Juicers</option>
+          <option>Vacuum Cleaners</option>
+        </select>
+      </div>
+      <div class="field">
+<label>Icon <span style="color:var(--text-faint); font-weight:400;">(Used only as a fallback when no product image is uploaded)</span></label>
+        <select id="pfIcon">
+          <option value="fridge">Fridge</option><option value="freezer">Freezer</option>
+          <option value="ac">AC</option><option value="cooler">Air Cooler</option>
+          <option value="oven">Oven</option><option value="microwave">Microwave</option>
+          <option value="airfryer">Air Fryer</option><option value="heater">Heater</option>
+          <option value="geyser">Water Heater</option><option value="washer">Washing Machine</option>
+          <option value="iron">Iron</option><option value="dispenser">Water Dispenser</option>
+          <option value="fan">Fan</option><option value="ricecooker">Rice Cooker</option>
+          <option value="blender">Blender</option><option value="vacuum">Vacuum</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Wholesale Price (Rs)</label><input type="number" id="pfPrice" min="0" required></div>
+      <div class="field"><label>Old / Retail Price (Rs, optional)</label><input type="number" id="pfOld" min="0"></div>
+    </div>
+    <div class="field"><label>Specs (comma-separated)</label><input type="text" id="pfSpecs" placeholder="e.g. 12 CFT, Frost-Free, 2-Door"></div>
+    <div class="form-error" id="productFormError"></div>
+    <button type="submit" class="btn" style="width:100%;"><span class="facet"></span><span id="pfSubmitLabel">Save Product</span></button>
+  </form>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
