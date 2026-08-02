@@ -160,12 +160,37 @@ function renderColorList(){
   });
 }
 
+
 if (pfAddColor) {
   pfAddColor.addEventListener('click', () => {
     const name = pfColorName.value.trim();
     const hex = pfColorHex.value || '#ffffff';
+
     if (!name) return;
-    productColors.push({ name, hex });
+
+    // Ask which uploaded image belongs to this color
+    const imageIndex = prompt(
+      `Which product photo should be used for "${name}"?\n\n` +
+      productImages.map((img, i) => `Photo ${i + 1}`).join('\n')
+    );
+
+    const selectedIndex = Number(imageIndex) - 1;
+
+    if (
+      !Number.isInteger(selectedIndex) ||
+      selectedIndex < 0 ||
+      selectedIndex >= productImages.length
+    ) {
+      alert("Please enter a valid photo number.");
+      return;
+    }
+
+    productColors.push({
+      name,
+      hex,
+      imageIndex: selectedIndex
+    });
+
     pfColorName.value = '';
     renderColorList();
   });
