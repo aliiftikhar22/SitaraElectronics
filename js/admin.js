@@ -45,9 +45,13 @@ const COLOR_MAP = {
   black: "#000000",
   white: "#ffffff",
   "off white": "#f5f5f5",
+
   silver: "#c0c0c0",
+  "silver black": "#2f2f2f",
+
   grey: "#808080",
   gray: "#808080",
+
   red: "#ff0000",
   blue: "#0000ff",
   green: "#008000",
@@ -61,7 +65,18 @@ const COLOR_MAP = {
   cream: "#fffdd0",
   maroon: "#800000",
   navy: "#000080",
-  teal: "#008080"
+  teal: "#008080",
+
+  "dark green": "#006400",
+  "light green": "#90ee90",
+  "dark blue": "#00008b",
+  "light blue": "#add8e6",
+  "sky blue": "#87ceeb",
+  "dark red": "#8b0000",
+  "light grey": "#d3d3d3",
+  "light gray": "#d3d3d3",
+  ivory: "#fffff0",
+  "rose gold": "#b76e79"
 };
 
 pfColorName.addEventListener("input", () => {
