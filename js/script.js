@@ -189,7 +189,17 @@ function productCard(p){
         <div class="product-colors">
           <div>Color</div>
           <div class="product-color-swatches">
-            ${colors.map((c,i)=>`<button type="button" class="product-color ${i===0?'active':''}" style="--swatch:${c.hex};" data-color-product="${p.id}" data-color-name="${String(c.name).replace(/"/g,'&quot;')}" aria-label="${c.name}"></button>`).join('')}
+${colors.map((c,i)=>`
+  <button
+    type="button"
+    class="product-color ${i === 0 ? 'active' : ''}"
+    style="--swatch:${c.hex};"
+    data-color-product="${p.id}"
+    data-color-index="${i}"
+    aria-label="${c.name}"
+    title="${c.name}">
+  </button>
+`).join('')}
           </div>
           <div class="product-color-label" id="color-label-${p.id}">${colors[0].name}</div>
         </div>
