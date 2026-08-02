@@ -402,14 +402,34 @@ window.removeFromCart = removeFromCart;
 function addToCart(id){
   const qtyInput = document.getElementById('qty-' + id);
   const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+
+  // Get the selected color for this product
+  const selectedColor = selectedProductColors[String(id)] || null;
+
+  // Keep your existing cart structure
   cart[id] = (cart[id] || 0) + qty;
-  saveCart(); renderCart(); openCart();
+
+  // Store the selected color separately
+  if (selectedColor) {
+    selectedProductColors[String(id)] = selectedColor;
+  }
+
+  saveCart();
+  renderCart();
+  openCart();
+
   const btn = document.getElementById('add-' + id);
+
   if (btn){
     const original = btn.innerHTML;
+
     btn.classList.add('added');
     btn.innerHTML = '<span>Added ✓</span>';
-    setTimeout(() => { btn.classList.remove('added'); btn.innerHTML = original; }, 1200);
+
+    setTimeout(() => {
+      btn.classList.remove('added');
+      btn.innerHTML = original;
+    }, 1200);
   }
 }
 
