@@ -48,7 +48,8 @@ const COLOR_MAP = {
 
   silver: "#c0c0c0",
   "silver black": "#2f2f2f",
-
+"black silver": "#4A4A4A",
+"black gold": "#8A6A20",
   grey: "#808080",
   gray: "#808080",
 
