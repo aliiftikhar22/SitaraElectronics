@@ -172,6 +172,9 @@ function productCard(p){
     : (ICONS[p.icon] || ICONS.default);
 
   const colors = Array.isArray(p.colors) ? p.colors : [];
+  if (colors.length && selectedProductColors[String(p.id)] === undefined) {
+  selectedProductColors[String(p.id)] = colors[0].name;
+}
 
   return `<div class="product-card">
     <div class="product-media">
