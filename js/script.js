@@ -608,3 +608,66 @@ if(productSearch){
     });
 
 }
+// Change product image when a color is selected
+document.addEventListener("click", (e) => {
+  const colorButton = e.target.closest(".product-color");
+
+  if (!colorButton) return;
+
+  const productId = colorButton.dataset.colorProduct;
+  const colorName = colorButton.dataset.colorName;
+
+  const product = LIVE_PRODUCTS.find(
+    p => String(p.id) === String(productId)
+  );
+
+  if (!product) return;
+
+  const colors = Array.isArray(product.colors)
+    ? product.colors
+    : [];
+
+  const selectedColor = colors.find(
+    c => String(c.name).trim().toLowerCase() ===
+         String(colorName).trim().toLowerCase()
+  );
+
+  if (!selectedColor) return;
+
+  // Active color
+  document
+    .querySelectorAll(
+      `.product-color[data-color-product="${productId}"]`
+    )
+    .forEach(btn => btn.classList.remove("active"));
+
+  colorButton.classList.add("active");
+
+  // Change color name
+  const label = document.getElementById(
+    `color-label-${productId}`
+  );
+
+  if (label) {
+    label.textContent = selectedColor.name;
+  }
+
+  // Change product photo
+  const imageIndex = Number(selectedColor.imageIndex);
+
+  if (
+    Number.isInteger(imageIndex) &&
+    Array.isArray(product.images) &&
+    product.images[imageIndex]
+  ) {
+    const card = colorButton.closest(".product-card");
+
+    const mainImage = card?.querySelector(
+      ".gallery-main-image"
+    );
+
+    if (mainImage) {
+      mainImage.src = product.images[imageIndex];
+    }
+  }
+});
