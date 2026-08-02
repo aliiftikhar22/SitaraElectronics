@@ -625,26 +625,29 @@ document.addEventListener("click", (e) => {
   if (!colorButton) return;
 
   const productId = colorButton.dataset.colorProduct;
-  const colorName = colorButton.dataset.colorName;
+  const colorIndex = Number(colorButton.dataset.colorIndex);
 
   const product = LIVE_PRODUCTS.find(
     p => String(p.id) === String(productId)
   );
 
-  if (!product) return;
+  if (!product) {
+    console.error("Product not found:", productId);
+    return;
+  }
 
   const colors = Array.isArray(product.colors)
     ? product.colors
     : [];
 
-  const selectedColor = colors.find(
-    c => String(c.name).trim().toLowerCase() ===
-         String(colorName).trim().toLowerCase()
-  );
+  const selectedColor = colors[colorIndex];
 
-  if (!selectedColor) return;
+  if (!selectedColor) {
+    console.error("Color not found:", colorIndex);
+    return;
+  }
 
-  // Active color
+  // Active button
   document
     .querySelectorAll(
       `.product-color[data-color-product="${productId}"]`
@@ -653,7 +656,7 @@ document.addEventListener("click", (e) => {
 
   colorButton.classList.add("active");
 
-  // Change color name
+  // Color name
   const label = document.getElementById(
     `color-label-${productId}`
   );
@@ -662,13 +665,16 @@ document.addEventListener("click", (e) => {
     label.textContent = selectedColor.name;
   }
 
-  // Change product photo
+  // Find image
   const imageIndex = Number(selectedColor.imageIndex);
+
+  const images = Array.isArray(product.images)
+    ? product.images
+    : (product.image ? [product.image] : []);
 
   if (
     Number.isInteger(imageIndex) &&
-    Array.isArray(product.images) &&
-    product.images[imageIndex]
+    images[imageIndex]
   ) {
     const card = colorButton.closest(".product-card");
 
@@ -677,7 +683,28 @@ document.addEventListener("click", (e) => {
     );
 
     if (mainImage) {
-      mainImage.src = product.images[imageIndex];
+      mainImage.src = images[imageIndex];
+
+      // Reset gallery buttons/dots to selected image
+      const gallery = mainImage.closest(".product-gallery");
+
+      if (gallery) {
+        gallery.dataset.currentIndex = imageIndex;
+
+        gallery
+          .querySelectorAll(".product-gallery-dot")
+          .forEach((dot, i) => {
+            dot.classList.toggle(
+              "active",
+              i === imageIndex
+            );
+          });
+      }
     }
+  } else {
+    console.warn(
+      "This color does not have a valid imageIndex:",
+      selectedColor
+    );
   }
 });
