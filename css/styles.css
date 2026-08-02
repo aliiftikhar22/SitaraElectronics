@@ -514,6 +514,7 @@ display:none;
   border-radius:50%;
   border:2px solid #fff;
   outline:1px solid rgba(15,23,42,.18);
+  background:var(--swatch);
   cursor:pointer;
   padding:0;
   transition:transform .2s ease, outline .2s ease;
