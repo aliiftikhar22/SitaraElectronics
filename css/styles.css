@@ -1432,3 +1432,35 @@ header{
     }
 
 }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.brand-name strong {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.brand-name span {
+  font-weight: 400;
+  color: var(--text-muted);
+}
